@@ -990,6 +990,7 @@ export default function App() {
                   {!videoError ? (
                     <video
                       id="genesis-matrix-player"
+                      src="/videos/genesis_matrix_10s.mp4"
                       width="100%"
                       height="100%"
                       autoPlay
@@ -1004,10 +1005,6 @@ export default function App() {
                         console.log("Could not load genesis video path, displaying advanced vector visual standby.");
                       }}
                     >
-                      <source
-                        src="/videos/genesis_matrix_10s.mp4"
-                        type="video/mp4"
-                      />
                       Your browser does not support the video tag.
                     </video>
                   ) : (

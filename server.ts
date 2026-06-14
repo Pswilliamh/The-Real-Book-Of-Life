@@ -51,9 +51,9 @@ Provide a beautiful, highly detailed theological-scientific response. Highlight 
     }
   });
 
-  // Serve static folders from root to guarantee media assets load outside the Vite virtual bundle
-  app.use("/videos", express.static(path.join(process.cwd(), "videos")));
-  app.use("/images", express.static(path.join(process.cwd(), "images")));
+  // Serve static folders from root/public to guarantee media assets load outside the Vite virtual bundle
+  app.use("/videos", express.static(path.join(process.cwd(), "public", "videos")));
+  app.use("/images", express.static(path.join(process.cwd(), "public", "images")));
 
   // Vite integration
   if (process.env.NODE_ENV !== "production") {

@@ -463,7 +463,7 @@ export default function App() {
                     
                     {/* Simulated High-Res Model Graphics with deep canvas detail overlays */}
                     <img
-                      src="/images/1000116952.png"
+                      src="https://drive.google.com/uc?export=view&id=1kA7kHcYKAlVyMhIR8RzXDDJv_16-9K9f"
                       alt="Full Structural Dermis and Containment: 3D Model Render"
                       referrerPolicy="no-referrer"
                       className="w-full h-full object-contain filter brightness-95 rounded-lg"
@@ -990,7 +990,6 @@ export default function App() {
                   {!videoError ? (
                     <video
                       id="genesis-matrix-player"
-                      src="/videos/genesis_matrix_10s.mp4"
                       width="100%"
                       height="100%"
                       autoPlay
@@ -1005,6 +1004,7 @@ export default function App() {
                         console.log("Could not load genesis video path, displaying advanced vector visual standby.");
                       }}
                     >
+                      <source src="https://drive.google.com/uc?export=download&id=1NRXrjddX3BPrawVq3k7bQ1cOKfg3UjOW" type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
                   ) : (

@@ -461,20 +461,13 @@ export default function App() {
                   // Rendering static high-fidelity conceptual image representation from blueprints
                   <div className="relative w-full aspect-[16/10] bg-slate-950 rounded-xl overflow-hidden border border-slate-800 flex items-center justify-center p-2">
                     
-                    {/* Simulated High-Res Model Graphics with deep canvas detail overlays */}
-                    <img
-                      src="https://drive.google.com/uc?export=view&id=1kA7kHcYKAlVyMhIR8RzXDDJv_16-9K9f"
-                      alt="Full Structural Dermis and Containment: 3D Model Render"
-                      referrerPolicy="no-referrer"
-                      className="w-full h-full object-contain filter brightness-95 rounded-lg"
-                      onError={(e) => {
-                        // If file not physically loaded, render a jaw-dropping stylized CSS fallback representational artwork!
-                        e.currentTarget.style.display = "none";
-                        // Reveal fallback layout
-                        const fallback = document.getElementById("showcase-render-fallback");
-                        if (fallback) fallback.classList.remove("hidden");
-                      }}
-                    />
+                    {/* Refactored Master Depiction Image utilizing secure preview iframe */}
+                    <iframe
+                      src="https://drive.google.com/file/d/1kA7kHcYKAlVyMhIR8RzXDDJv_16-9K9f/preview"
+                      width="100%"
+                      height="500"
+                      style={{ border: "none", borderRadius: "6px", backgroundColor: "#050b14" }}
+                    ></iframe>
 
                     {/* Highly stylized custom vector fallback element inside render tab if img not found */}
                     <div
@@ -988,25 +981,14 @@ export default function App() {
                 {/* Video container */}
                 <div className="relative aspect-[16/9] w-full bg-slate-950 rounded-lg overflow-hidden border border-slate-800 group">
                   {!videoError ? (
-                    <video
+                    <iframe
                       id="genesis-matrix-player"
+                      src="https://drive.google.com/file/d/1NRXrjddX3BPrawVq3k7bQ1cOKfg3UjOW/preview"
                       width="100%"
-                      height="100%"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover"
-                      onPlay={() => setVideoPlaying(true)}
-                      onPause={() => setVideoPlaying(false)}
-                      onError={() => {
-                        setVideoError(true);
-                        console.log("Could not load genesis video path, displaying advanced vector visual standby.");
-                      }}
-                    >
-                      <source src="https://drive.google.com/uc?export=download&id=1NRXrjddX3BPrawVq3k7bQ1cOKfg3UjOW" type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
+                      height="450"
+                      allow="autoplay"
+                      style={{ border: "none", borderRadius: "6px", backgroundColor: "#050b14" }}
+                    ></iframe>
                   ) : (
                     /* Holographic vector background illustration standby */
                     <div className="w-full h-full bg-slate-950/70 flex flex-col items-center justify-center p-6 text-center select-none relative">
@@ -1032,14 +1014,21 @@ export default function App() {
                         onClick={() => {
                           const player = document.getElementById("genesis-matrix-player") as HTMLVideoElement | null;
                           if (player) {
-                            if (player.paused) {
-                              player.play();
-                              setVideoPlaying(true);
-                              playTone(396, "Video Resume");
+                            if (player && typeof player.play === "function") {
+                              if (player.paused) {
+                                player.play();
+                                setVideoPlaying(true);
+                                playTone(396, "Video Resume");
+                              } else {
+                                player.pause();
+                                setVideoPlaying(false);
+                                playTone(288, "Video Paused");
+                              }
                             } else {
-                              player.pause();
-                              setVideoPlaying(false);
-                              playTone(288, "Video Paused");
+                              // Handle iframe standby mock toggling gracefully
+                              const newPlaying = !videoPlaying;
+                              setVideoPlaying(newPlaying);
+                              playTone(newPlaying ? 396 : 288, newPlaying ? "Video Resume" : "Video Paused");
                             }
                           }
                         }}
@@ -1053,8 +1042,10 @@ export default function App() {
                         onClick={() => {
                           const player = document.getElementById("genesis-matrix-player") as HTMLVideoElement | null;
                           if (player) {
-                            player.currentTime = 0;
-                            player.play();
+                            if (typeof player.play === "function") {
+                              player.currentTime = 0;
+                              player.play();
+                            }
                             playTone(432, "Loop restart");
                           }
                         }}
@@ -1070,10 +1061,16 @@ export default function App() {
                       onClick={() => {
                         const player = document.getElementById("genesis-matrix-player") as HTMLVideoElement | null;
                         if (player) {
-                          const mValue = !player.muted;
-                          player.muted = mValue;
-                          setVideoMuted(mValue);
-                          playTone(mValue ? 288 : 528, mValue ? "Mute Active" : "Sound Enabled");
+                          if ("muted" in player) {
+                            const mValue = !player.muted;
+                            player.muted = mValue;
+                            setVideoMuted(mValue);
+                            playTone(mValue ? 288 : 528, mValue ? "Mute Active" : "Sound Enabled");
+                          } else {
+                            const mValue = !videoMuted;
+                            setVideoMuted(mValue);
+                            playTone(mValue ? 288 : 528, mValue ? "Mute Active" : "Sound Enabled");
+                          }
                         }
                       }}
                       className="p-1 px-2 text-[10px] bg-slate-950/80 hover:bg-slate-900 rounded border border-slate-700 text-slate-200 cursor-pointer"

@@ -1,0 +1,6 @@
+{
+  "name": "The Real Book of Life",
+  "description": "An interactive pneuma physics, closed pressurized firmament, and 3-6-9 vortex-gematria decoding dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

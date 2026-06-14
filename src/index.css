@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&family=JetBrains+Mono:wght@300;400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Orbitron", "Inter", sans-serif;
+}
+
+/* Custom glow borders and HUD styling */
+.hud-glowing-border {
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.15);
+  border-color: rgba(6, 182, 212, 0.25);
+}
+
+.hud-glowing-glow-amber {
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.25);
+}
+
+.glow-text-cyan {
+  text-shadow: 0 0 8px rgba(6, 182, 212, 0.6);
+}
+
+.glow-text-amber {
+  text-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
+}
+
+.glow-text-emerald {
+  text-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+}
+
+/* Scrollbar styles to look futuristic and thin */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0891b2;
+}
+
+/* Fade animations for tab switching */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-tab-fade {
+  animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

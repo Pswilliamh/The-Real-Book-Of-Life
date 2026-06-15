@@ -21,7 +21,9 @@ import {
   Award,
   ChevronRight,
   Sparkle,
-  Shield
+  Shield,
+  Lock,
+  Music
 } from "lucide-react";
 import {
   CREATION_DAYS,
@@ -65,6 +67,7 @@ export default function App() {
 
   // Presentation state
   const [activeChapterId, setActiveChapterId] = useState<number>(4); // Defaults to chapter 4
+  const [activeDocId, setActiveDocId] = useState<string | null>("book_of_life_origin");
 
   // IVCC Alignment state (Pillar 2 workbook)
   const [selectedCriticalIdx, setSelectedCriticalIdx] = useState<number>(-1);
@@ -747,236 +750,297 @@ export default function App() {
           </div>
         )}
 
-        {/* ==================== TAB 2: PRESENTATIONS & SLIDES ==================== */}
+        {/* ==================== TAB 2: SECURE RESOURCE WORKSTATION ==================== */}
         {activeTab === "presentation" && (
-          <div className="animate-tab-fade grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <div className="animate-tab-fade grid grid-cols-1 lg:grid-cols-10 gap-6">
             
-            {/* Sidebar Chapter Indexer Selector */}
-            <div className="lg:col-span-4 bg-slate-900/30 rounded-xl border border-slate-800/80 p-4 space-y-2 h-[550px] overflow-y-auto">
-              <h3 className="text-xs font-mono font-bold uppercase tracking-widest text-slate-500 mb-3 px-1.5 flex items-center gap-2">
-                <Layers className="w-3.5 h-3.5" />
-                <span>INDEXED MATRIX sYLLABUS</span>
-              </h3>
-
-              {CREATION_DAYS.map((day) => {
-                const isActive = activeChapterId === day.id - 1;
-                return (
-                  <button
-                    key={day.id}
-                    onClick={() => {
-                      setActiveChapterId(day.id - 1);
-                      playTone(day.vortexFrequencyHz, `Lesson Select: ${day.title}`);
-                    }}
-                    className={`w-full p-2.5 rounded-lg border text-left cursor-pointer transition-all flex items-start gap-2.5 ${
-                      isActive
-                        ? "bg-slate-950 border-pink-500/60 text-pink-400 shadow-[0_0_10px_rgba(244,114,182,0.15)]"
-                        : "bg-transparent border-slate-850 text-slate-400 hover:bg-slate-900/30 hover:border-slate-800"
-                    }`}
-                  >
-                    <div className={`p-1 rounded font-mono text-xs font-bold leading-none ${
-                      isActive ? "bg-pink-950 text-pink-300" : "bg-slate-950 text-slate-500"
-                    }`}>
-                      {day.id}
-                    </div>
-                    <div>
-                      <div className="text-xs font-bold tracking-wide">{day.title.split(": ")[1]}</div>
-                      <div className="text-[10px] opacity-70 font-mono mt-0.5">{day.scriptureRef || "Syllabus Track"}</div>
-                    </div>
-                  </button>
-                );
-              })}
-
-              {/* Lesson 8 dedicated card (IVCC Course Option) */}
-              <button
-                onClick={() => {
-                  setActiveChapterId(7); // Index 7 corresponds to Module 8
-                  playTone(963, "IVCC Lesson Loaded");
-                }}
-                className={`w-full p-2.5 rounded-lg border text-left cursor-pointer transition-all flex items-start gap-2.5 ${
-                  activeChapterId === 7
-                    ? "bg-slate-950 border-pink-500/60 text-pink-400 shadow-[0_0_10px_rgba(244,114,182,0.15)]"
-                    : "bg-transparent border-slate-850 text-slate-400 hover:bg-slate-900/30 hover:border-slate-800"
-                }`}
-              >
-                <div className={`p-1 rounded font-mono text-xs font-bold leading-none ${
-                  activeChapterId === 7 ? "bg-pink-950 text-pink-300" : "bg-slate-950 text-slate-500"
-                }`}>
-                  8
+            {/* LEFT-HAND COMPONENT SELECTOR LIST (30% Width Grid -> col-span-3 of 10) */}
+            <div className="lg:col-span-3 bg-slate-900/30 rounded-xl border border-slate-800/80 p-4 space-y-6 h-[600px] overflow-y-auto">
+              
+              {/* SECTION 1: CORE RESEARCH PAPERS */}
+              <div className="space-y-3">
+                <div className="flex items-center gap-2 border-b border-cyan-500/10 pb-2 px-1">
+                  <FileText className="w-4 h-4 text-cyan-400" />
+                  <h3 className="text-xs font-mono font-bold uppercase tracking-widest text-cyan-400">
+                    CORE RESEARCH PAPERS
+                  </h3>
                 </div>
-                <div>
-                  <div className="text-xs font-bold tracking-wide">Pillar 2: IVCC Workbook</div>
-                  <div className="text-[10px] opacity-70 font-mono mt-0.5">Inner Voice Correction Course</div>
+                <div className="space-y-2">
+                  {[
+                    {
+                      id: "book_of_life_origin",
+                      title: "The Real Book of Life Origin",
+                      subtitle: "Secure Document Vault",
+                      badge: "Doc 1",
+                      freq: 432
+                    },
+                    {
+                      id: "new_creation_protocol",
+                      title: "The New Creation Protocol",
+                      subtitle: "Secure Document Vault",
+                      badge: "Doc 2",
+                      freq: 432
+                    },
+                    {
+                      id: "pneumatology_protocol",
+                      title: "The Pneumatology Creation Dimensional Protocol",
+                      subtitle: "Secure Document Vault",
+                      badge: "Doc 3",
+                      freq: 432
+                    }
+                  ].map((doc) => {
+                    const isActive = activeDocId === doc.id;
+                    return (
+                      <button
+                        key={doc.id}
+                        id={`card-doc-${doc.id}`}
+                        onClick={() => {
+                          setActiveDocId(doc.id);
+                          playTone(doc.freq, `${doc.title} Loaded`);
+                        }}
+                        className={`w-full p-2.5 rounded-lg border text-left cursor-pointer transition-all flex items-start gap-2.5 ${
+                          isActive
+                            ? "bg-slate-950 border-cyan-500/60 text-cyan-400 shadow-[0_0_10px_rgba(6,182,212,0.15)]"
+                            : "bg-transparent border-slate-850 text-slate-400 hover:bg-slate-900/30 hover:border-slate-800"
+                        }`}
+                      >
+                        <div className={`p-1 rounded font-mono text-[10px] font-bold leading-none flex-shrink-0 ${
+                          isActive ? "bg-cyan-950 text-cyan-300" : "bg-slate-950 text-slate-500"
+                        }`}>
+                          {doc.badge}
+                        </div>
+                        <div>
+                          <div className="text-xs font-bold leading-tight tracking-wide">{doc.title}</div>
+                          <div className="text-[10px] opacity-75 font-mono mt-0.5">{doc.subtitle}</div>
+                        </div>
+                      </button>
+                    );
+                  })}
                 </div>
-              </button>
+              </div>
+
+              {/* SECTION 2: INSTITUTE AUDIO PODCASTS */}
+              <div className="space-y-3">
+                <div className="flex items-center gap-2 border-b border-pink-500/10 pb-2 px-1">
+                  <Radio className="w-4 h-4 text-pink-400" />
+                  <h3 className="text-xs font-mono font-bold uppercase tracking-widest text-[#00ffcc] text-glow-light-pulse">
+                    INSTITUTE AUDIO PODCASTS
+                  </h3>
+                </div>
+                <div className="space-y-2">
+                  {[
+                    {
+                      id: "audio_architecture_origin",
+                      title: "Architecture Creation Origin",
+                      subtitle: "Secure Audio Podcast",
+                      badge: "Audio 1",
+                      freq: 528
+                    },
+                    {
+                      id: "audio_pneumatology_matrix",
+                      title: "Pneumatology Dimensional Creation Matrix",
+                      subtitle: "Secure Audio Podcast",
+                      badge: "Audio 2",
+                      freq: 528
+                    },
+                    {
+                      id: "audio_closed_sphere_model",
+                      title: "Closed Sphere Firmament Cell Model",
+                      subtitle: "Secure Audio Podcast",
+                      badge: "Audio 3",
+                      freq: 528
+                    }
+                  ].map((audio) => {
+                    const isActive = activeDocId === audio.id;
+                    return (
+                      <button
+                        key={audio.id}
+                        id={`card-audio-${audio.id}`}
+                        onClick={() => {
+                          setActiveDocId(audio.id);
+                          playTone(audio.freq, `${audio.title} Broadcast Active`);
+                        }}
+                        className={`w-full p-2.5 rounded-lg border text-left cursor-pointer transition-all flex items-start gap-2.5 ${
+                          isActive
+                            ? "bg-slate-950 border-pink-500/60 text-pink-400 shadow-[0_0_10px_rgba(244,114,182,0.15)]"
+                            : "bg-transparent border-slate-850 text-slate-400 hover:bg-slate-900/30 hover:border-slate-800"
+                        }`}
+                      >
+                        <div className={`p-1 rounded font-mono text-[10px] font-bold leading-none flex-shrink-0 ${
+                          isActive ? "bg-pink-950 text-pink-300" : "bg-slate-950 text-slate-500"
+                        }`}>
+                          {audio.badge}
+                        </div>
+                        <div>
+                          <div className="text-xs font-bold leading-tight tracking-wide">{audio.title}</div>
+                          <div className="text-[10px] opacity-75 font-mono mt-0.5">{audio.subtitle}</div>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
             </div>
 
-            {/* Projection viewport screen */}
-            <div className="lg:col-span-8 bg-slate-900/10 rounded-xl border border-slate-800/80 p-5 sm:p-6 shadow-xl backdrop-blur-md flex flex-col justify-between h-[550px] overflow-y-auto">
+            {/* RIGHT-HAND PROTECTED PLAYBACK DISPLAY (70% Width Grid -> col-span-7 of 10) */}
+            <div className="lg:col-span-7 bg-slate-900/10 rounded-xl border border-slate-800/80 p-5 sm:p-6 shadow-xl backdrop-blur-md flex flex-col justify-between h-[600px] overflow-y-auto">
               
-              {/* If general chapter 1 to 7 is loaded */}
-              {activeChapterId < 7 ? (
-                <div className="space-y-4 animate-tab-fade">
-                  <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-                    <div>
-                      <span className="text-[10px] font-mono text-pink-500 uppercase font-bold tracking-wider">
-                        Syllabus Slide Projection Viewport
-                      </span>
-                      <h2 className="text-lg sm:text-xl font-bold font-display text-slate-200 mt-1">
-                        {CREATION_DAYS[activeChapterId].title}
-                      </h2>
-                    </div>
-                    <span className="text-xs font-mono font-medium text-slate-500 bg-slate-950 px-2.5 py-1 rounded border border-slate-800 select-none">
-                      Vortex Freq: {CREATION_DAYS[activeChapterId].vortexFrequencyHz}Hz
+              <div className="flex flex-col justify-between h-full space-y-4 animate-tab-fade">
+                
+                {/* Header of Viewframe */}
+                <div className="flex items-center justify-between border-b border-cyan-500/20 pb-3">
+                  <div>
+                    <span className="text-[10px] font-mono text-cyan-400 uppercase font-bold tracking-wider flex items-center gap-1.5">
+                      <Shield className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
+                      <span>SECURE RESOURCE WORKSTATION</span>
                     </span>
+                    <h2 className="text-lg sm:text-xl font-bold font-display text-slate-200 mt-1">
+                      {activeDocId === "book_of_life_origin" && "The Real Book of Life Origin"}
+                      {activeDocId === "new_creation_protocol" && "The New Creation Protocol"}
+                      {activeDocId === "pneumatology_protocol" && "The Pneumatology Creation Dimensional Protocol"}
+                      {activeDocId === "audio_architecture_origin" && "Architecture Creation Origin"}
+                      {activeDocId === "audio_pneumatology_matrix" && "Pneumatology Dimensional Creation Matrix"}
+                      {activeDocId === "audio_closed_sphere_model" && "Closed Sphere Firmament Cell Model"}
+                      {!activeDocId && "Digital Assets Research Center"}
+                    </h2>
                   </div>
-
-                  <p className="text-sm font-light text-slate-300 leading-relaxed italic">
-                    &ldquo;{CREATION_DAYS[activeChapterId].subtitle}&rdquo;
-                  </p>
-
-                  {/* scripture quote box */}
-                  <div className="bg-[#0c1322] border-l-2 border-amber-500 p-4 rounded-r-lg space-y-1.5 shadow-inner">
-                    <div className="text-[10px] font-mono font-bold text-amber-500 flex items-center justify-between">
-                      <span>SCRIPTURAL BINDING INTEGRATION</span>
-                      <span>{CREATION_DAYS[activeChapterId].scriptureRef}</span>
-                    </div>
-                    <p className="text-xs sm:text-sm font-serif font-semibold text-slate-200 leading-relaxed text-right tracking-wide">
-                      {CREATION_DAYS[activeChapterId].scriptureText}
-                    </p>
-                  </div>
-
-                  {/* Syllabus body details */}
-                  <div className="space-y-3">
-                    <span className="text-[11px] font-mono text-pink-400 font-bold block uppercase tracking-wider">
-                      THEOLOGICAL-SCIENTIFIC MECHANICS:
-                    </span>
-                    <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                      {CREATION_DAYS[activeChapterId].summary}
-                    </p>
-                  </div>
-
-                  {/* Telemetry settings during this timeline day */}
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 p-3 bg-slate-950/60 rounded-lg border border-slate-850 font-mono text-xs">
-                    <div>
-                      <span className="text-slate-500 block text-[10px] uppercase">Atmospheric Pressure</span>
-                      <strong className="text-cyan-400 font-medium leading-none mt-1 inline-block">
-                        {CREATION_DAYS[activeChapterId].pressureAtm.toFixed(2)} Atm
-                      </strong>
-                    </div>
-                    <div>
-                      <span className="text-slate-500 block text-[10px] uppercase">Pneuma Temp</span>
-                      <strong className="text-slate-200 font-medium leading-none mt-1 inline-block">
-                        {CREATION_DAYS[activeChapterId].tempK.toFixed(1)} K
-                      </strong>
-                    </div>
-                    <div>
-                      <span className="text-slate-500 block text-[10px] uppercase">Simulation Layers</span>
-                      <strong className="text-pink-400 block text-[9px] mt-1 leading-normal">
-                        {CREATION_DAYS[activeChapterId].activeLayers.slice(0, 2).join(", ")}
-                      </strong>
-                    </div>
-                  </div>
+                  <span className="text-xs font-mono font-medium text-cyan-400 bg-cyan-950/40 border border-cyan-500/30 px-2.5 py-1 rounded select-none uppercase">
+                    PROTECTED STREAM
+                  </span>
                 </div>
-              ) : (
-                /* LESSON 8: IVCC Workbook Panel - Inner Voice Correction Course */
-                <div className="space-y-4 animate-tab-fade">
-                  <div className="flex items-center justify-between border-b border-pink-900/40 pb-3">
-                    <div>
-                      <span className="text-[10px] font-mono text-pink-500 uppercase font-bold tracking-wider">
-                        IVCC Course Pillar 2 Workbook
-                      </span>
-                      <h2 className="text-lg sm:text-xl font-bold font-display text-pink-300 mt-1">
-                        Supportive vs. Critical Internal Dialogue
-                      </h2>
-                    </div>
-                    <span className="text-xs font-mono font-medium text-emerald-400 bg-emerald-950/30 px-2.5 py-1 rounded border border-emerald-500/30 uppercase select-none">
-                      Equilibrium Tool
-                    </span>
-                  </div>
 
-                  <p className="text-xs text-slate-400 leading-relaxed">
-                    According to pneuma-physics parameters, chaotic internal self-dialogue compromises micro-biological cellular frequencies. The exercise below aligns dissonant, critical limiting voices with Supportive Covenant Affirmation structures to restore homeostasis.
-                  </p>
+                {/* Main Viewing Canvas wrapper with select-none text blocking and onContextMenu override */}
+                <div 
+                  className="flex-1 min-h-[320px] bg-slate-950/90 rounded-lg border border-slate-800/60 p-2 flex flex-col items-center justify-center relative overflow-hidden select-none"
+                  onContextMenu={(e) => e.preventDefault()}
+                >
+                  
+                  {/* Document Viewframe Iframes */}
+                  {activeDocId === "book_of_life_origin" && (
+                    <iframe
+                      id="viewframe-doc-1"
+                      src="documents/The_Real_Book_of_Life_Origin.pdf#toolbar=0&navpanes=0"
+                      width="100%"
+                      height="100%"
+                      style={{ border: "none", borderRadius: "4px", backgroundColor: "#050b14" }}
+                      className="w-full flex-1 min-h-[380px]"
+                    ></iframe>
+                  )}
 
-                  {/* Interactive Alignment Tool */}
-                  <div className="space-y-3 pt-1">
-                    <span className="text-[10px] font-mono uppercase text-slate-500 font-bold block">
-                      Choose a critical voice preset or type a custom thought:
-                    </span>
-                    
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                      {DIALOGUE_PRESETS.map((p, idx) => (
-                        <button
-                          key={p.id}
-                          onClick={() => {
-                            setSelectedCriticalIdx(idx);
-                            setCustomCriticalInput("");
-                            setAlignedAffirmation(null);
-                            playTone(432, "Preset Selected");
-                          }}
-                          className={`p-2.5 rounded-lg border text-left cursor-pointer transition-colors ${
-                            selectedCriticalIdx === idx
-                              ? "bg-pink-950/50 border-pink-400 text-pink-200"
-                              : "bg-slate-950 text-slate-450 border-slate-900 hover:bg-slate-900/60"
-                          }`}
-                        >
-                          <div className="font-mono text-[9px] text-pink-500 font-bold mb-1">DISSONANCE PRESET {p.id}</div>
-                          &ldquo;{p.critical}&rdquo;
-                        </button>
-                      ))}
-                    </div>
+                  {activeDocId === "new_creation_protocol" && (
+                    <iframe
+                      id="viewframe-doc-2"
+                      src="documents/The_New_Creation_Protocol.pdf#toolbar=0&navpanes=0"
+                      width="100%"
+                      height="100%"
+                      style={{ border: "none", borderRadius: "4px", backgroundColor: "#050b14" }}
+                      className="w-full flex-1 min-h-[380px]"
+                    ></iframe>
+                  )}
 
-                    {/* Custom input field */}
-                    <div className="flex gap-2">
-                      <input
-                        type="text"
-                        value={customCriticalInput}
-                        onChange={(e) => {
-                          setCustomCriticalInput(e.target.value);
-                          setSelectedCriticalIdx(-1);
-                          setAlignedAffirmation(null);
-                        }}
-                        placeholder="Or write custom critical self-dialogue here..."
-                        className="flex-1 bg-slate-950 border border-slate-900 rounded-lg p-2 px-3 text-xs text-slate-200 focus:outline-none focus:border-pink-500/50"
-                      />
-                    </div>
+                  {activeDocId === "pneumatology_protocol" && (
+                    <iframe
+                      id="viewframe-doc-3"
+                      src="documents/The_Pneumatology_Creation_Dimensional_Protocol.pdf#toolbar=0&navpanes=0"
+                      width="100%"
+                      height="100%"
+                      style={{ border: "none", borderRadius: "4px", backgroundColor: "#050b14" }}
+                      className="w-full flex-1"
+                    ></iframe>
+                  )}
 
-                    {/* Trigger alignment button */}
-                    <button
-                      onClick={handleDePolarize}
-                      disabled={selectedCriticalIdx === -1 && customCriticalInput.trim() === ""}
-                      className={`w-full py-3 px-4 rounded-xl font-mono text-center text-xs font-bold cursor-pointer transition-all uppercase flex items-center justify-center gap-2 ${
-                        alignmentVisualTrigger
-                          ? "bg-emerald-600 text-white animate-pulse"
-                          : "bg-pink-950 text-pink-300 hover:bg-pink-900 hover:text-pink-100 border border-pink-600/50"
-                      } disabled:opacity-40 disabled:pointer-events-none`}
-                    >
-                      <span>De-Polarize &amp; Align ⚡</span>
-                    </button>
-                  </div>
-
-                  {/* Aligned Supportive Affirmation output box */}
-                  {alignedAffirmation && (
-                    <div className="bg-emerald-950/30 border border-emerald-500/40 p-4 rounded-lg animate-tab-fade flex items-start gap-3">
-                      <div className="p-1 rounded bg-emerald-950 border border-emerald-400/40 text-emerald-400">
-                        <Award className="w-5 h-5 animate-pulse" />
+                  {/* Audio Podcast Standard HTML5 Audio with nodownload restriction */}
+                  {activeDocId === "audio_architecture_origin" && (
+                    <div className="flex flex-col items-center justify-center py-10 px-4 w-full max-w-md mx-auto text-center space-y-6">
+                      <div className="w-20 h-20 rounded-full bg-cyan-950/50 border border-cyan-500/30 flex items-center justify-center shadow-[0_0_20px_rgba(6,182,212,0.1)] text-cyan-400 animate-pulse">
+                        <Music className="w-10 h-10" />
                       </div>
-                      <div>
-                        <div className="text-[10px] font-mono text-emerald-400 font-bold mb-1 uppercase tracking-wider">
-                          SUPPORTIVE COVENANT ALIGNMENT DECLARATION
-                        </div>
-                        <p className="text-xs sm:text-sm font-semibold text-emerald-200 leading-normal">
-                          {alignedAffirmation}
-                        </p>
+                      <div className="space-y-1">
+                        <h4 className="text-sm font-semibold tracking-wide text-slate-200">Architecture Creation Origin</h4>
+                        <p className="text-xs text-slate-400 font-mono">SECURE PODCAST AUDIO BROADCAST</p>
                       </div>
+                      <audio
+                        id="audio-player-1"
+                        controls
+                        controlsList="nodownload text"
+                        className="w-full accent-cyan-400"
+                        onContextMenu={(e) => e.preventDefault()}
+                      >
+                        <source src="audio/Architecture_Creation_Origin.mp3" type="audio/mp3" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </div>
+                  )}
+
+                  {activeDocId === "audio_pneumatology_matrix" && (
+                    <div className="flex flex-col items-center justify-center py-10 px-4 w-full max-w-md mx-auto text-center space-y-6">
+                      <div className="w-20 h-20 rounded-full bg-cyan-950/50 border border-cyan-500/30 flex items-center justify-center shadow-[0_0_20px_rgba(6,182,212,0.1)] text-cyan-400 animate-pulse">
+                        <Music className="w-10 h-10" />
+                      </div>
+                      <div className="space-y-1">
+                        <h4 className="text-sm font-semibold tracking-wide text-slate-200">Pneumatology Dimensional Creation Matrix</h4>
+                        <p className="text-xs text-slate-400 font-mono">SECURE PODCAST AUDIO BROADCAST</p>
+                      </div>
+                      <audio
+                        id="audio-player-2"
+                        controls
+                        controlsList="nodownload text"
+                        className="w-full accent-cyan-400"
+                        onContextMenu={(e) => e.preventDefault()}
+                      >
+                        <source src="audio/Pneumatology_Dimensional_Creation_Matrix.mp3" type="audio/mp3" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </div>
+                  )}
+
+                  {activeDocId === "audio_closed_sphere_model" && (
+                    <div className="flex flex-col items-center justify-center py-10 px-4 w-full max-w-md mx-auto text-center space-y-6">
+                      <div className="w-20 h-20 rounded-full bg-cyan-950/50 border border-cyan-500/30 flex items-center justify-center shadow-[0_0_20px_rgba(6,182,212,0.1)] text-cyan-400 animate-pulse">
+                        <Music className="w-10 h-10" />
+                      </div>
+                      <div className="space-y-1">
+                        <h4 className="text-sm font-semibold tracking-wide text-slate-200">Closed Sphere Firmament Cell Model</h4>
+                        <p className="text-xs text-slate-400 font-mono">SECURE PODCAST AUDIO BROADCAST</p>
+                      </div>
+                      <audio
+                        id="audio-player-3"
+                        controls
+                        controlsList="nodownload text"
+                        className="w-full accent-cyan-400"
+                        onContextMenu={(e) => e.preventDefault()}
+                      >
+                        <source src="audio/Closed_Sphere_Firmament_Cell_Model.mp3" type="audio/mp3" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </div>
+                  )}
+
+                  {/* Fallback if somehow selection is lost */}
+                  {!activeDocId && (
+                    <div className="text-center p-6 text-slate-500 font-mono text-xs">
+                      Please select a Secure Asset Paper or Podcast from the left-hand directory list.
                     </div>
                   )}
 
                 </div>
-              )}
+
+                {/* SECURE COPYRIGHT BANNER DISPLAY - permanently center-anchored beneath active media area */}
+                <div className="bg-[#050b14] border border-cyan-950/50 p-4 rounded-lg font-mono text-[10px] leading-relaxed text-center space-y-1 mt-2 select-none">
+                  <p className="font-bold text-cyan-400 tracking-wider flex items-center justify-center gap-1.5">
+                    🔒 SECURITY NOTICE: DOCUMENT &amp; AUDIO VIEW ONLY. DOWNLOADS ARE FORCE-DISABLED.
+                  </p>
+                  <p className="text-slate-400 font-sans">Document Content Copyright © All Rights Reserved.</p>
+                  <p className="text-pink-500/75 font-semibold uppercase tracking-wider text-[9px]">
+                    I.O.D.P.S.S Institute Dimensional Pneumatology Spiritual Sciences
+                  </p>
+                </div>
+
+              </div>
 
               {/* Training syllabus warning notice */}
-              <div className="text-[11px] font-mono text-slate-500 leading-normal border-t border-slate-800/60 pt-4.5">
+              <div className="text-[11px] font-mono text-slate-550 leading-normal border-t border-slate-800/60 pt-4 mt-4 select-none">
                 Note: Standard presentations are verified by peer-reviewed spiritual sciences. For further study on other research papers, request Scribe consultation in the Technical Scribe Tool.
               </div>
 

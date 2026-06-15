@@ -80,6 +80,9 @@ export default function App() {
   // Modal displays
   const [showEmbassyModal, setShowEmbassyModal] = useState(false);
 
+  // Interactive FAQ / Protocols Accordion State
+  const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+
   // Real-time Waveform Oscilloscope Canvas
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const animationFrameRef = useRef<number | null>(null);
@@ -247,8 +250,15 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#050b14] text-slate-100 font-sans flex flex-col justify-between overflow-x-hidden antialiased selection:bg-cyan-500/30 selection:text-white">
+    <div className="min-h-screen relative bg-gradient-to-br from-[#030712] to-[#0b132b] text-slate-100 font-sans flex flex-col justify-between overflow-x-hidden antialiased selection:bg-cyan-500/30 selection:text-white">
       
+      {/* Dynamic Starfield Background Layers */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <div className="absolute inset-0 stars-layer-1 opacity-40 mix-blend-screen" />
+        <div className="absolute inset-0 stars-layer-2 opacity-50 mix-blend-screen" />
+        <div className="absolute inset-0 stars-layer-3 opacity-65 mix-blend-screen" />
+      </div>
+
       {/* Background Ambience overlays */}
       <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-[#0b132b]/40 to-transparent pointer-events-none z-0" />
       <div className="absolute top-[20%] right-[10%] w-[400px] h-[400px] bg-blue-900/5 rounded-full blur-[120px] pointer-events-none z-0" />
@@ -336,14 +346,14 @@ export default function App() {
       </header>
 
       {/* LINGUISTIC WATERMARK CANOPY - Faded scripture run overlay */}
-      <div className="bg-[#030712] border-b border-slate-950 py-1.5 px-4 h-8 overflow-hidden select-none relative">
+      <div className="bg-[#030712] border-b border-slate-950 py-1.5 px-4 h-8 overflow-hidden select-none relative z-10">
         <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#030712] to-transparent z-10" />
         <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#030712] to-transparent z-10" />
-        <div className="flex justify-around items-center gap-10 text-[10px] sm:text-xs font-mono font-bold tracking-[0.3em] uppercase text-cyan-500/15 whitespace-nowrap animate-pulse">
-          <span>יְהִי אוֹר • Let There Be Light • Frequency Core 432Hz</span>
-          <span>רָקִיעַ • Crystalline Dome • sealed vacuum</span>
-          <span>עַמּוּד • Foundational Columns • pneuma discharge</span>
-          <span>מַבְדִּיל • Division above and below</span>
+        <div className="flex justify-around items-center gap-10 text-[10px] sm:text-xs font-mono font-bold tracking-[0.3em] uppercase whitespace-nowrap">
+          <span className="text-glow-light-pulse">יְהִי אוֹר • Let There Be Light • Frequency Core 432Hz</span>
+          <span className="text-cyan-500/30">רָקִיעַ • Crystalline Dome • sealed vacuum</span>
+          <span className="text-cyan-500/30">עַמּוּד • Foundational Columns • pneuma discharge</span>
+          <span className="text-cyan-500/30">מַבְדִּיל • Division above and below</span>
         </div>
       </div>
 
@@ -404,6 +414,160 @@ export default function App() {
 
       {/* VIEWPORT AREA: Rendered dynamically depending on Active Tab Selector */}
       <main className="relative z-10 flex-1 max-w-7xl mx-auto w-full px-4 py-3">
+        
+        {/* ==================== 5-STEP SYSTEM NAVIGATION GUIDE ==================== */}
+        <div className="mb-8">
+          <div className="bg-[#070d19]/80 rounded-xl border border-cyan-500/20 p-4 shadow-[0_0_15px_rgba(6,182,212,0.05)] backdrop-blur-md">
+            <div className="flex items-center gap-2 mb-3 border-b border-cyan-500/10 pb-2">
+              <Compass className="w-4 h-4 text-cyan-400 animate-spin" style={{ animationDuration: "12s" }} />
+              <h3 className="text-xs font-mono font-bold tracking-widest text-cyan-400 uppercase">
+                Sovereign System Navigation Guide
+              </h3>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+              
+              {/* Step 1 */}
+              <div 
+                onClick={() => {
+                  if (isMuted) {
+                    setIsMuted(false);
+                    setTimeout(() => playTone(432, "Audio Sandbox Activated"), 100);
+                  } else {
+                    playTone(288, "Synth Status Confirmed");
+                  }
+                }}
+                className="group cursor-pointer bg-[#0c1529]/40 hover:bg-[#101b35]/60 hover:border-cyan-500/40 p-3 rounded-lg border border-slate-800/80 transition-all duration-300 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-5 h-5 rounded-full bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-[11px] font-mono font-bold text-cyan-400 group-hover:scale-110 transition-transform shadow-[0_0_8px_rgba(6,182,212,0.3)]">
+                      1
+                    </span>
+                    <strong className="text-slate-200 text-xs font-mono group-hover:text-cyan-300 transition-colors">
+                      Initiate System
+                    </strong>
+                  </div>
+                  <p className="text-[11px] text-slate-400 font-sans leading-relaxed">
+                    <span className="font-semibold text-slate-300">[Step 1: Initiate System]</span> Observe the operational status check and ensure{' '}
+                    <span className="text-cyan-400 underline decoration-cyan-500/30 group-hover:decoration-cyan-400">
+                      &apos;SYNTH: ACTIVE&apos;
+                    </span>{' '}
+                    is initialized.
+                  </p>
+                </div>
+              </div>
+
+              {/* Step 2 */}
+              <div 
+                onClick={() => {
+                  setActiveTab("showcase");
+                  playTone(288, "Examine Showcase viewport");
+                }}
+                className="group cursor-pointer bg-[#0c1529]/40 hover:bg-[#101b35]/60 hover:border-cyan-500/40 p-3 rounded-lg border border-slate-800/80 transition-all duration-300 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-5 h-5 rounded-full bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-[11px] font-mono font-bold text-cyan-400 group-hover:scale-110 transition-transform shadow-[0_0_8px_rgba(6,182,212,0.3)]">
+                      2
+                    </span>
+                    <strong className="text-slate-200 text-xs font-mono group-hover:text-cyan-300 transition-colors">
+                      Examine Showcase
+                    </strong>
+                  </div>
+                  <p className="text-[11px] text-slate-400 font-sans leading-relaxed">
+                    <span className="font-semibold text-slate-300">[Step 2: Examine Showcase]</span> Review the master Closed-Sphere Cell Architecture cross-section render on center stage.
+                  </p>
+                </div>
+              </div>
+
+              {/* Step 3 */}
+              <div 
+                onClick={() => {
+                  setActiveTab("showcase");
+                  setTimeout(() => {
+                    document.getElementById("cinematic-player-panel")?.scrollIntoView({ behavior: "smooth" });
+                    playTone(432, "Anchor scroll trigger");
+                  }, 120);
+                }}
+                className="group cursor-pointer bg-[#0c1529]/40 hover:bg-[#101b35]/60 hover:border-cyan-500/40 p-3 rounded-lg border border-slate-800/80 transition-all duration-300 flex flex-col justify-between shadow-[0_0_12px_rgba(6,182,212,0.03)]"
+              >
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-5 h-5 rounded-full bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-[11px] font-mono font-bold text-cyan-400 group-hover:scale-110 transition-transform shadow-[0_0_8px_rgba(6,182,212,0.3)]">
+                      3
+                    </span>
+                    <strong className="text-slate-200 text-xs font-mono group-hover:text-cyan-300 transition-colors">
+                      Toggle Motion
+                    </strong>
+                  </div>
+                  <p className="text-[11px] text-slate-400 font-sans leading-relaxed">
+                    <span className="font-semibold text-slate-300">[Step 3: Toggle Motion]</span> Click the{' '}
+                    <span className="text-cyan-300 underline decoration-cyan-400/50 font-medium hover:text-cyan-100 transition-colors">
+                      &apos;10 Second Creation Illustration&apos; link
+                    </span>{' '}
+                    to jump seamlessly to the live kinetic simulation loop.
+                  </p>
+                </div>
+              </div>
+
+              {/* Step 4 */}
+              <div 
+                onClick={() => {
+                  setActiveTab("presentation");
+                  playTone(324, "Presentations Active");
+                }}
+                className="group cursor-pointer bg-[#0c1529]/40 hover:bg-[#101b35]/60 hover:border-cyan-500/40 p-3 rounded-lg border border-slate-800/80 transition-all duration-300 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-5 h-5 rounded-full bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-[11px] font-mono font-bold text-cyan-400 group-hover:scale-110 transition-transform shadow-[0_0_8px_rgba(6,182,212,0.3)]">
+                      4
+                    </span>
+                    <strong className="text-slate-200 text-xs font-mono group-hover:text-pink-300 transition-colors">
+                      Analyze Decks
+                    </strong>
+                  </div>
+                  <p className="text-[11px] text-slate-400 font-sans leading-relaxed">
+                    <span className="font-semibold text-slate-300">[Step 4: Analyze Decks]</span> Select the{' '}
+                    <span className="text-pink-400 font-medium group-hover:underline">
+                      &apos;Presentations &amp; Slides&apos; tab
+                    </span>{' '}
+                    to review foundational structural blueprints and IVCC course parameters.
+                  </p>
+                </div>
+              </div>
+
+              {/* Step 5 */}
+              <div 
+                onClick={() => {
+                  setActiveTab("techlab");
+                  playTone(384, "Technical Lab Active");
+                }}
+                className="group cursor-pointer bg-[#0c1529]/40 hover:bg-[#101b35]/60 hover:border-cyan-500/40 p-3 rounded-lg border border-slate-800/80 transition-all duration-300 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-5 h-5 rounded-full bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-[11px] font-mono font-bold text-cyan-400 group-hover:scale-110 transition-transform shadow-[0_0_8px_rgba(6,182,212,0.3)]">
+                      5
+                    </span>
+                    <strong className="text-slate-200 text-xs font-mono group-hover:text-amber-300 transition-colors">
+                      Access Protocols
+                    </strong>
+                  </div>
+                  <p className="text-[11px] text-slate-400 font-sans leading-relaxed">
+                    <span className="font-semibold text-slate-300">[Step 5: Access Protocols]</span> Navigate to the{' '}
+                    <span className="text-amber-400 font-medium group-hover:underline">
+                      &apos;Illustrations / Lab&apos; tab
+                    </span>{' '}
+                    to study localized real-time telemetry variables and frequency metrics.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
         
         {/* ==================== TAB 1: SYSTEM SHOWCASE ==================== */}
         {activeTab === "showcase" && (
@@ -1134,6 +1298,74 @@ export default function App() {
 
           </div>
         )}
+
+        {/* ==================== SYSTEM FAQ / PROTOCOLS ACCORDION ==================== */}
+        <div id="system-protocols-faq" className="mt-12 bg-slate-900/30 rounded-2xl border border-slate-800/80 p-5 sm:p-6 shadow-xl backdrop-blur-sm">
+          <div className="flex items-center gap-2 pb-4 mb-4 border-b border-slate-800/60">
+            <HelpCircle className="w-5 h-5 text-cyan-400" />
+            <h3 className="text-sm font-bold font-display uppercase tracking-widest text-[#00ffcc] text-glow-light-pulse">
+              SYSTEM PROTOCOLS &amp; FREQUENTLY ASKED QUESTIONS
+            </h3>
+          </div>
+          
+          <div className="space-y-3.5">
+            {[
+              {
+                q: "What is the Sovereign Closed-Sphere Cell Architecture?",
+                a: "It is a creation-based conceptual design model showing complete flat landplane isolation from deep cosmic radiation, sustained within a pressurized firmament containment dome running a closed-loop hydraulic recycling cascade."
+              },
+              {
+                q: "What do the values GA: 1, 16, 26 | G4: 15, 29 | V: 38 represent?",
+                a: "These represent calculated linguistic frequency metrics and Gematria constants tied directly to the foundational spoken phrase 'יְהִי אוֹר' (Let There Be Light), serving as the geo-acoustic baseline for the entire structural matrix."
+              },
+              {
+                q: "How do the 3-6-9 Vortex Mathematics regulate the environment?",
+                a: "The mathematical vectors 3, 6, and 9 govern the precise orbital tracks and velocity curves of the celestial clock mechanics (Sun and Moon vectors) operating within the upper dome atmosphere to maintain systemic balance."
+              },
+              {
+                q: "Why is the internal atmosphere specified as 78% Sealed?",
+                a: "This denotes the optimized pressure balance threshold required for full-stack full-cycle atmospheric replenishment within the closed firmament vault, blocking out 100% of simulated external cosmic noise."
+              }
+            ].map((item, index) => {
+              const isOpen = expandedFaq === index;
+              return (
+                <div 
+                  key={index} 
+                  className={`rounded-xl border transition-all duration-300 overflow-hidden ${
+                    isOpen 
+                      ? "bg-[#0a1122]/90 border-cyan-500/40 shadow-[0_0_15px_rgba(6,182,212,0.1)]" 
+                      : "bg-[#070d19]/40 border-slate-800/80 hover:border-slate-700/80 hover:bg-[#0c1529]/60"
+                  }`}
+                >
+                  <button
+                    onClick={() => {
+                      const nextVal = isOpen ? null : index;
+                      setExpandedFaq(nextVal);
+                      playTone(nextVal !== null ? 333 : 288, `FAQ toggle ${index + 1}`);
+                    }}
+                    className="w-full py-4 px-4 sm:px-5 flex items-center justify-between gap-3 text-left font-mono font-semibold transition-colors cursor-pointer"
+                  >
+                    <span className={`text-xs sm:text-sm tracking-wide ${isOpen ? "text-cyan-400" : "text-slate-300"}`}>
+                      {item.q}
+                    </span>
+                    <ChevronRight className={`w-4 h-4 transition-transform duration-300 flex-shrink-0 ${isOpen ? "rotate-90 text-cyan-400" : "text-slate-500"}`} />
+                  </button>
+                  
+                  {/* Expandable answer panel */}
+                  <div 
+                    className={`transition-all duration-500 ease-in-out ${
+                      isOpen ? "max-h-[300px] border-t border-slate-800/60 opacity-100" : "max-h-0 opacity-0 overflow-hidden"
+                    }`}
+                  >
+                    <div className="p-4 sm:p-5 text-sm text-slate-400 leading-relaxed font-sans bg-slate-950/40">
+                      {item.a}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
 
       </main>
 

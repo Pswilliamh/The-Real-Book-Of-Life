@@ -55,3 +55,78 @@
 .animate-tab-fade {
   animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* Custom Gematria / Cosmic Starfield Background Animation */
+@keyframes starDrift1 {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-30px, -50px, 0); }
+}
+
+@keyframes starDrift2 {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(40px, -30px, 0); }
+}
+
+@keyframes starDrift3 {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-20px, 60px, 0); }
+}
+
+@keyframes starPulse {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.75; }
+}
+
+.stars-layer-1 {
+  background-image: 
+    radial-gradient(1px 1px at 10% 12%, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1.5px 1.5px at 20% 30%, rgba(6, 182, 212, 0.6), transparent),
+    radial-gradient(1px 1px at 30% 50%, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(2px 2px at 45% 70%, rgba(6, 182, 212, 0.7), transparent),
+    radial-gradient(1px 1px at 60% 25%, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1.5px 1.5px at 75% 45%, rgba(6, 182, 212, 0.5), transparent),
+    radial-gradient(1px 1px at 85% 65%, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(2px 2px at 95% 15%, rgba(6, 182, 212, 0.7), transparent);
+  background-size: 350px 350px;
+  animation: starDrift1 45s linear infinite alternate, starPulse 7s ease-in-out infinite;
+}
+
+.stars-layer-2 {
+  background-image: 
+    radial-gradient(1px 1px at 15% 40%, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(2px 2px at 25% 60%, rgba(6, 182, 212, 0.6), transparent),
+    radial-gradient(1px 1px at 35% 15%, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1.5px 1.5px at 50% 80%, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 65% 50%, rgba(6, 182, 212, 0.6), transparent),
+    radial-gradient(2px 2px at 80% 20%, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 90% 75%, rgba(6, 182, 212, 0.5), transparent);
+  background-size: 300px 300px;
+  animation: starDrift2 65s linear infinite alternate, starPulse 9s ease-in-out infinite 2s;
+}
+
+.stars-layer-3 {
+  background-image: 
+    radial-gradient(1.5px 1.5px at 5% 75%, rgba(6, 182, 212, 0.8), transparent),
+    radial-gradient(1px 1px at 18% 22%, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(2px 2px at 40% 35%, rgba(6, 182, 212, 0.7), transparent),
+    radial-gradient(1px 1px at 58% 62%, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1.5px 1.5px at 70% 88%, rgba(6, 182, 212, 0.8), transparent),
+    radial-gradient(1px 1px at 83% 40%, rgba(255, 255, 255, 0.7), transparent);
+  background-size: 250px 250px;
+  animation: starDrift3 85s linear infinite alternate, starPulse 11s ease-in-out infinite 4s;
+}
+
+@keyframes customNeonPulse {
+  0%, 100% {
+    text-shadow: 0 0 6px rgba(0, 255, 204, 0.4);
+    color: rgba(165, 243, 252, 0.85);
+  }
+  50% {
+    text-shadow: 0 0 16px rgba(0, 255, 204, 1), 0 0 24px rgba(6, 182, 212, 0.7);
+    color: #ffffff;
+  }
+}
+
+.text-glow-light-pulse {
+  animation: customNeonPulse 4s ease-in-out infinite;
+}

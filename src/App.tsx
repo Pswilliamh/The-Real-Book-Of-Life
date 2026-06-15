@@ -786,14 +786,14 @@ export default function App() {
                   {[
                     {
                       id: "real_book_of_life_2",
-                      title: "The Real Book of Life 2.0",
+                      title: "The Real Book of Life Origin",
                       subtitle: "Secure Document Vault",
                       badge: "Doc 1",
                       freq: 432
                     },
                     {
                       id: "salvation_kingdom_protocol",
-                      title: "Salvation Kingdom Protocol",
+                      title: "The Pneumatology Creation Dimensional Protocol",
                       subtitle: "Secure Document Vault",
                       badge: "Doc 2",
                       freq: 432
@@ -910,14 +910,14 @@ export default function App() {
                   {[
                     {
                       id: "video_carbon_lock",
-                      title: "The 666 Carbon Lock Overview",
+                      title: "The 666 Carbon Lock of Sin",
                       subtitle: "Secure Video Explainer",
                       badge: "Video 1",
                       freq: 396
                     },
                     {
                       id: "video_new_birth",
-                      title: "The New Birth Activation Blueprint",
+                      title: "Salvation Kingdom Protocol Study",
                       subtitle: "Secure Video Explainer",
                       badge: "Video 2",
                       freq: 396
@@ -968,14 +968,14 @@ export default function App() {
                       <span>SECURE RESOURCE WORKSTATION</span>
                     </span>
                     <h2 className="text-lg sm:text-xl font-bold font-display text-slate-200 mt-1">
-                      {activeDocId === "real_book_of_life_2" && "The Real Book of Life 2.0"}
-                      {activeDocId === "salvation_kingdom_protocol" && "Salvation Kingdom Protocol"}
+                      {activeDocId === "real_book_of_life_2" && "The Real Book of Life Origin"}
+                      {activeDocId === "salvation_kingdom_protocol" && "The Pneumatology Creation Dimensional Protocol"}
                       {activeDocId === "new_creation_protocol" && "New Creation Protocol"}
                       {activeDocId === "audio_architecture_origin" && "Architecture Creation Origin"}
                       {activeDocId === "audio_pneumatology_matrix" && "Pneumatology Dimensional Creation Matrix"}
                       {activeDocId === "audio_closed_sphere_model" && "Closed Sphere Firmament Cell Model"}
-                      {activeDocId === "video_carbon_lock" && "The 666 Carbon Lock Overview"}
-                      {activeDocId === "video_new_birth" && "The New Birth Activation Blueprint"}
+                      {activeDocId === "video_carbon_lock" && "The 666 Carbon Lock of Sin"}
+                      {activeDocId === "video_new_birth" && "Salvation Kingdom Protocol Study"}
                       {!activeDocId && "Digital Assets Research Center"}
                     </h2>
                   </div>
@@ -1024,116 +1024,61 @@ export default function App() {
                     ></iframe>
                   )}
 
-                  {/* Audio Podcast Standard HTML5 Audio with nodownload restriction */}
+                  {/* Audio Podcast Standard HTML5 Audio - Replaced with Cloud Stream Preview */}
                   {activeDocId === "audio_architecture_origin" && (
-                    <div className="flex flex-col items-center justify-center py-10 px-4 w-full max-w-md mx-auto text-center space-y-6">
-                      <div className="w-20 h-20 rounded-full bg-cyan-950/50 border border-cyan-500/30 flex items-center justify-center shadow-[0_0_20px_rgba(6,182,212,0.1)] text-cyan-400 animate-pulse">
-                        <Music className="w-10 h-10" />
-                      </div>
-                      <div className="space-y-1">
-                        <h4 className="text-sm font-semibold tracking-wide text-slate-200">Architecture Creation Origin</h4>
-                        <p className="text-xs text-slate-400 font-mono">SECURE PODCAST AUDIO BROADCAST</p>
-                      </div>
-                      <audio
-                        id="audio-player-1"
-                        controls
-                        controlsList="nodownload text"
-                        className="w-full accent-cyan-400"
-                        onContextMenu={(e) => e.preventDefault()}
-                      >
-                        <source src="audio/Architecture_Creation_Origin.mp3" type="audio/mp3" />
-                        Your browser does not support the audio element.
-                      </audio>
-                    </div>
+                    <iframe
+                      id="viewframe-audio-1"
+                      src="https://drive.google.com/file/d/1BP0-p0aUZzmZ8rwLjJ5pUwMkEt_7X4YU/preview"
+                      width="100%"
+                      height="600"
+                      style={{ border: "none", borderRadius: "6px", backgroundColor: "#050b14" }}
+                      className="w-full flex-1 min-h-[380px]"
+                    ></iframe>
                   )}
 
                   {activeDocId === "audio_pneumatology_matrix" && (
-                    <div className="flex flex-col items-center justify-center py-10 px-4 w-full max-w-md mx-auto text-center space-y-6">
-                      <div className="w-20 h-20 rounded-full bg-cyan-950/50 border border-cyan-500/30 flex items-center justify-center shadow-[0_0_20px_rgba(6,182,212,0.1)] text-cyan-400 animate-pulse">
-                        <Music className="w-10 h-10" />
-                      </div>
-                      <div className="space-y-1">
-                        <h4 className="text-sm font-semibold tracking-wide text-slate-200">Pneumatology Dimensional Creation Matrix</h4>
-                        <p className="text-xs text-slate-400 font-mono">SECURE PODCAST AUDIO BROADCAST</p>
-                      </div>
-                      <audio
-                        id="audio-player-2"
-                        controls
-                        controlsList="nodownload text"
-                        className="w-full accent-cyan-400"
-                        onContextMenu={(e) => e.preventDefault()}
-                      >
-                        <source src="audio/Pneumatology_Dimensional_Creation_Matrix.mp3" type="audio/mp3" />
-                        Your browser does not support the audio element.
-                      </audio>
-                    </div>
+                    <iframe
+                      id="viewframe-audio-2"
+                      src="https://drive.google.com/file/d/1-edJSR24pbLgqO0QYzlA7yZYPrAv4ffK/preview"
+                      width="100%"
+                      height="600"
+                      style={{ border: "none", borderRadius: "6px", backgroundColor: "#050b14" }}
+                      className="w-full flex-1 min-h-[380px]"
+                    ></iframe>
                   )}
 
                   {activeDocId === "audio_closed_sphere_model" && (
-                    <div className="flex flex-col items-center justify-center py-10 px-4 w-full max-w-md mx-auto text-center space-y-6">
-                      <div className="w-20 h-20 rounded-full bg-cyan-950/50 border border-cyan-500/30 flex items-center justify-center shadow-[0_0_20px_rgba(6,182,212,0.1)] text-cyan-400 animate-pulse">
-                        <Music className="w-10 h-10" />
-                      </div>
-                      <div className="space-y-1">
-                        <h4 className="text-sm font-semibold tracking-wide text-slate-200">Closed Sphere Firmament Cell Model</h4>
-                        <p className="text-xs text-slate-400 font-mono">SECURE PODCAST AUDIO BROADCAST</p>
-                      </div>
-                      <audio
-                        id="audio-player-3"
-                        controls
-                        controlsList="nodownload text"
-                        className="w-full accent-cyan-400"
-                        onContextMenu={(e) => e.preventDefault()}
-                      >
-                        <source src="audio/Closed_Sphere_Firmament_Cell_Model.mp3" type="audio/mp3" />
-                        Your browser does not support the audio element.
-                      </audio>
-                    </div>
+                    <iframe
+                      id="viewframe-audio-3"
+                      src="https://drive.google.com/file/d/1E_lZaTyt2HLf29Vh1PwSwJ-9JJUu1k5-/preview"
+                      width="100%"
+                      height="600"
+                      style={{ border: "none", borderRadius: "6px", backgroundColor: "#050b14" }}
+                      className="w-full flex-1 min-h-[380px]"
+                    ></iframe>
                   )}
 
-                  {/* Video Explainers HTML5 / Custom Video Players with explicit nodownload restriction */}
+                  {/* Video Explainers - Replaced with Cloud Stream Preview */}
                   {activeDocId === "video_carbon_lock" && (
-                    <div className="flex flex-col items-center justify-center py-6 px-4 w-full h-full max-w-xl mx-auto text-center space-y-4">
-                      <div className="w-14 h-14 rounded-full bg-purple-950/50 border border-purple-500/30 flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.1)] text-purple-400 animate-pulse">
-                        <Video className="w-7 h-7" />
-                      </div>
-                      <div className="space-y-1">
-                        <h4 className="text-sm font-semibold tracking-wide text-slate-200 font-display">The 666 Carbon Lock Overview</h4>
-                        <p className="text-xs text-slate-400 font-mono">SECURE SYSTEM VIDEO EXPLAINER</p>
-                      </div>
-                      <video
-                        id="video-player-1"
-                        controls
-                        controlsList="nodownload"
-                        className="w-full h-auto max-h-[300px] rounded-lg border border-slate-800 accent-purple-500 shadow-lg"
-                        onContextMenu={(e) => e.preventDefault()}
-                      >
-                        <source src="video/The_666_Carbon_Lock_Overview.mp4" type="video/mp4" />
-                        Your browser does not support the video element.
-                      </video>
-                    </div>
+                    <iframe
+                      id="viewframe-video-1"
+                      src="https://drive.google.com/file/d/1FMhSHpuYzIqBgh7LolFMrWpyqdYd-rZW/preview"
+                      width="100%"
+                      height="600"
+                      style={{ border: "none", borderRadius: "6px", backgroundColor: "#050b14" }}
+                      className="w-full flex-1 min-h-[380px]"
+                    ></iframe>
                   )}
 
                   {activeDocId === "video_new_birth" && (
-                    <div className="flex flex-col items-center justify-center py-6 px-4 w-full h-full max-w-xl mx-auto text-center space-y-4">
-                      <div className="w-14 h-14 rounded-full bg-purple-950/50 border border-purple-500/30 flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.1)] text-purple-400 animate-pulse">
-                        <Video className="w-7 h-7" />
-                      </div>
-                      <div className="space-y-1">
-                        <h4 className="text-sm font-semibold tracking-wide text-slate-200 font-display">The New Birth Activation Blueprint</h4>
-                        <p className="text-xs text-slate-400 font-mono">SECURE SYSTEM VIDEO EXPLAINER</p>
-                      </div>
-                      <video
-                        id="video-player-2"
-                        controls
-                        controlsList="nodownload"
-                        className="w-full h-auto max-h-[300px] rounded-lg border border-slate-800 accent-purple-500 shadow-lg"
-                        onContextMenu={(e) => e.preventDefault()}
-                      >
-                        <source src="video/The_New_Birth_Activation_Blueprint.mp4" type="video/mp4" />
-                        Your browser does not support the video element.
-                      </video>
-                    </div>
+                    <iframe
+                      id="viewframe-video-2"
+                      src="https://drive.google.com/file/d/1xzvIXN-213DajxC4i5QJUI0cdyKFlzdu/preview"
+                      width="100%"
+                      height="600"
+                      style={{ border: "none", borderRadius: "6px", backgroundColor: "#050b14" }}
+                      className="w-full flex-1 min-h-[380px]"
+                    ></iframe>
                   )}
 
                   {/* Fallback if somehow selection is lost */}
@@ -1517,7 +1462,10 @@ export default function App() {
                   <h3 className="text-sm sm:text-base font-bold font-display text-slate-200">
                     The FCR Creation Deception Model
                   </h3>
-                  <div className="relative aspect-[16/9] w-full bg-slate-950 rounded-lg overflow-hidden border border-slate-900">
+                  <div 
+                    className="relative aspect-[16/9] w-full bg-slate-950 rounded-lg overflow-hidden border border-slate-900 select-none"
+                    onContextMenu={(e) => e.preventDefault()}
+                  >
                     <iframe 
                       id="viewframe-deception-1"
                       src="https://drive.google.com/file/d/1TQwUv42lj9P-jbxExI8FAFBksCmqf_t9/preview" 
@@ -1548,7 +1496,10 @@ export default function App() {
                   <h3 className="text-sm sm:text-base font-bold font-display text-slate-200">
                     Current Creation Model Simulation
                   </h3>
-                  <div className="relative aspect-[16/9] w-full bg-slate-950 rounded-lg overflow-hidden border border-slate-900">
+                  <div 
+                    className="relative aspect-[16/9] w-full bg-slate-950 rounded-lg overflow-hidden border border-slate-900 select-none"
+                    onContextMenu={(e) => e.preventDefault()}
+                  >
                     <iframe 
                       id="viewframe-deception-2"
                       src="https://drive.google.com/file/d/1CLtiVD_Dpc7ZZS_9O-OT-GK6u_dIIicT/preview" 

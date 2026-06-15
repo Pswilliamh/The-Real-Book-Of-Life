@@ -994,7 +994,7 @@ export default function App() {
                   {activeDocId === "real_book_of_life_2" && (
                     <iframe
                       id="viewframe-doc-1"
-                      src="https://drive.google.com/file/d/DOC_ID_REAL_BOOK/preview"
+                      src="https://drive.google.com/file/d/1UkqmM9ekfcktMpik7A_jO3DjBn0sfDZ3/preview"
                       width="100%"
                       height="600"
                       style={{ border: "none", borderRadius: "6px", backgroundColor: "#050b14" }}
@@ -1005,7 +1005,7 @@ export default function App() {
                   {activeDocId === "salvation_kingdom_protocol" && (
                     <iframe
                       id="viewframe-doc-2"
-                      src="https://drive.google.com/file/d/DOC_ID_SALVATION_PROTOCOL/preview"
+                      src="https://drive.google.com/file/d/PNEUMA_PROTOCOL_ID_PLACEHOLDER/preview"
                       width="100%"
                       height="600"
                       style={{ border: "none", borderRadius: "6px", backgroundColor: "#050b14" }}
@@ -1016,7 +1016,7 @@ export default function App() {
                   {activeDocId === "new_creation_protocol" && (
                     <iframe
                       id="viewframe-doc-3"
-                      src="https://drive.google.com/file/d/DOC_ID_NEW_CREATION/preview"
+                      src="https://drive.google.com/file/d/1ZCQkTo-3wyUdGn50krzQCmvl1OL35LH8/preview"
                       width="100%"
                       height="600"
                       style={{ border: "none", borderRadius: "6px", backgroundColor: "#050b14" }}

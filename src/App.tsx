@@ -23,7 +23,8 @@ import {
   Sparkle,
   Shield,
   Lock,
-  Music
+  Music,
+  Mic
 } from "lucide-react";
 import {
   CREATION_DAYS,
@@ -338,6 +339,19 @@ export default function App() {
                 </>
               )}
             </button>
+
+            {/* Access IVCC Protocol Dashboard Portal */}
+            <a
+              href="https://the-real-book-of-life-2-0.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => playTone(369, "Accessing IVCC Protocol Dashboard")}
+              className="flex items-center gap-2 px-3  py-1.5 rounded-lg border border-[#00ffcc]/30 bg-slate-950/80 hover:bg-[#00ffcc]/10 hover:border-[#00ffcc]/80 text-[#00ffcc] text-xs font-mono font-bold uppercase tracking-wider transition-all duration-300 shadow-[0_0_8px_rgba(0,255,204,0.1)] hover:shadow-[0_0_15px_rgba(0,255,204,0.3)] hover:-translate-y-0.5 cursor-pointer relative select-none"
+              title="Access IVCC Protocol Dashboard"
+            >
+              <div className="w-1.5 h-1.5 bg-[#00ffcc] rounded-full animate-pulse shadow-[0_0_4px_#00ffcc]" />
+              <span>Access IVCC Protocol Dashboard</span>
+            </a>
 
             {/* Level status green bill pill */}
             <div className="bg-emerald-950/50 border border-emerald-500/40 rounded-full py-1.5 px-3.5 flex items-center gap-2 text-xs font-mono text-emerald-400 shadow-[0_0_12px_rgba(16,185,129,0.15)] select-none">
@@ -1005,7 +1019,7 @@ export default function App() {
                   {activeDocId === "salvation_kingdom_protocol" && (
                     <iframe
                       id="viewframe-doc-2"
-                      src="https://drive.google.com/file/d/PNEUMA_PROTOCOL_ID_PLACEHOLDER/preview"
+                      src="https://drive.google.com/file/d/1j-Afc70V-IWLNWvXqiLSWeBj4zNihibs/preview"
                       width="100%"
                       height="600"
                       style={{ border: "none", borderRadius: "6px", backgroundColor: "#050b14" }}
@@ -1026,36 +1040,99 @@ export default function App() {
 
                   {/* Audio Podcast Standard HTML5 Audio - Replaced with Cloud Stream Preview */}
                   {activeDocId === "audio_architecture_origin" && (
-                    <iframe
-                      id="viewframe-audio-1"
-                      src="https://drive.google.com/file/d/1BP0-p0aUZzmZ8rwLjJ5pUwMkEt_7X4YU/preview"
-                      width="100%"
-                      height="600"
-                      style={{ border: "none", borderRadius: "6px", backgroundColor: "#050b14" }}
-                      className="w-full flex-1 min-h-[380px]"
-                    ></iframe>
+                    <div className="w-full flex flex-col justify-center items-center p-4 select-none" onContextMenu={(e) => e.preventDefault()}>
+                      {/* Layer A (The Visual Poster) */}
+                      <div className="w-full max-w-lg mb-3 bg-[#0a1428]/80 p-5 rounded-lg border border-cyan-500/20 flex flex-col items-center text-center space-y-3 shadow-[0_0_20px_rgba(6,182,212,0.15)] relative overflow-hidden">
+                        <div className="absolute top-0 left-0 w-32 h-32 bg-cyan-500/5 rounded-full blur-2xl pointer-events-none" />
+                        <div className="absolute bottom-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-2xl pointer-events-none" />
+                        <div className="w-12 h-12 rounded-full bg-cyan-950/60 border border-cyan-500/40 flex items-center justify-center text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.3)]">
+                          <Mic className="w-5 h-5 animate-pulse" />
+                        </div>
+                        <div className="space-y-1">
+                          <h4 className="text-sm font-bold font-display tracking-wide text-slate-100">
+                            Architecture Creation Origin
+                          </h4>
+                          <p className="text-[10px] uppercase font-mono tracking-widest text-[#fbbf24] font-bold">
+                            Core Audio Review
+                          </p>
+                        </div>
+                      </div>
+                      {/* Layer B (The Controlled Stream) */}
+                      <div className="w-full max-w-lg overflow-hidden rounded-lg bg-slate-950 border border-slate-900 shadow-md opacity-85 hover:opacity-100 transition-opacity">
+                        <iframe
+                          id="viewframe-audio-1"
+                          src="https://drive.google.com/file/d/1BP0-p0aUZzmZ8rwLjJ5pUwMkEt_7X4YU/preview"
+                          width="100%"
+                          height="60"
+                          style={{ border: "none", borderRadius: "0", backgroundColor: "#050b14" }}
+                          className="w-full h-[60px]"
+                        ></iframe>
+                      </div>
+                    </div>
                   )}
 
                   {activeDocId === "audio_pneumatology_matrix" && (
-                    <iframe
-                      id="viewframe-audio-2"
-                      src="https://drive.google.com/file/d/1-edJSR24pbLgqO0QYzlA7yZYPrAv4ffK/preview"
-                      width="100%"
-                      height="600"
-                      style={{ border: "none", borderRadius: "6px", backgroundColor: "#050b14" }}
-                      className="w-full flex-1 min-h-[380px]"
-                    ></iframe>
+                    <div className="w-full flex flex-col justify-center items-center p-4 select-none" onContextMenu={(e) => e.preventDefault()}>
+                      {/* Layer A (The Visual Poster) */}
+                      <div className="w-full max-w-lg mb-3 bg-[#0a1428]/80 p-5 rounded-lg border border-cyan-500/20 flex flex-col items-center text-center space-y-3 shadow-[0_0_20px_rgba(6,182,212,0.15)] relative overflow-hidden">
+                        <div className="absolute top-0 left-0 w-32 h-32 bg-cyan-500/5 rounded-full blur-2xl pointer-events-none" />
+                        <div className="absolute bottom-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-2xl pointer-events-none" />
+                        <div className="w-12 h-12 rounded-full bg-cyan-950/60 border border-cyan-500/40 flex items-center justify-center text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.3)]">
+                          <Mic className="w-5 h-5 animate-pulse" />
+                        </div>
+                        <div className="space-y-1">
+                          <h4 className="text-sm font-bold font-display tracking-wide text-slate-100">
+                            Pneumatology Dimensional Creation Matrix
+                          </h4>
+                          <p className="text-[10px] uppercase font-mono tracking-widest text-[#fbbf24] font-bold">
+                            Acoustic Transmission
+                          </p>
+                        </div>
+                      </div>
+                      {/* Layer B (The Controlled Stream) */}
+                      <div className="w-full max-w-lg overflow-hidden rounded-lg bg-slate-950 border border-slate-900 shadow-md opacity-85 hover:opacity-100 transition-opacity">
+                        <iframe
+                          id="viewframe-audio-2"
+                          src="https://drive.google.com/file/d/1-edJSR24pbLgqO0QYzlA7yZYPrAv4ffK/preview"
+                          width="100%"
+                          height="60"
+                          style={{ border: "none", borderRadius: "0", backgroundColor: "#050b14" }}
+                          className="w-full h-[60px]"
+                        ></iframe>
+                      </div>
+                    </div>
                   )}
 
                   {activeDocId === "audio_closed_sphere_model" && (
-                    <iframe
-                      id="viewframe-audio-3"
-                      src="https://drive.google.com/file/d/1E_lZaTyt2HLf29Vh1PwSwJ-9JJUu1k5-/preview"
-                      width="100%"
-                      height="600"
-                      style={{ border: "none", borderRadius: "6px", backgroundColor: "#050b14" }}
-                      className="w-full flex-1 min-h-[380px]"
-                    ></iframe>
+                    <div className="w-full flex flex-col justify-center items-center p-4 select-none" onContextMenu={(e) => e.preventDefault()}>
+                      {/* Layer A (The Visual Poster) */}
+                      <div className="w-full max-w-lg mb-3 bg-[#0a1428]/80 p-5 rounded-lg border border-cyan-500/20 flex flex-col items-center text-center space-y-3 shadow-[0_0_20px_rgba(6,182,212,0.15)] relative overflow-hidden">
+                        <div className="absolute top-0 left-0 w-32 h-32 bg-cyan-500/5 rounded-full blur-2xl pointer-events-none" />
+                        <div className="absolute bottom-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-2xl pointer-events-none" />
+                        <div className="w-12 h-12 rounded-full bg-cyan-950/60 border border-cyan-500/40 flex items-center justify-center text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.3)]">
+                          <Mic className="w-5 h-5 animate-pulse" />
+                        </div>
+                        <div className="space-y-1">
+                          <h4 className="text-sm font-bold font-display tracking-wide text-slate-100">
+                            Closed Sphere Firmament Cell Model
+                          </h4>
+                          <p className="text-[10px] uppercase font-mono tracking-widest text-[#fbbf24] font-bold">
+                            System Telemetry Review
+                          </p>
+                        </div>
+                      </div>
+                      {/* Layer B (The Controlled Stream) */}
+                      <div className="w-full max-w-lg overflow-hidden rounded-lg bg-slate-950 border border-slate-900 shadow-md opacity-85 hover:opacity-100 transition-opacity">
+                        <iframe
+                          id="viewframe-audio-3"
+                          src="https://drive.google.com/file/d/1E_lZaTyt2HLf29Vh1PwSwJ-9JJUu1k5-/preview"
+                          width="100%"
+                          height="60"
+                          style={{ border: "none", borderRadius: "0", backgroundColor: "#050b14" }}
+                          className="w-full h-[60px]"
+                        ></iframe>
+                      </div>
+                    </div>
                   )}
 
                   {/* Video Explainers - Replaced with Cloud Stream Preview */}

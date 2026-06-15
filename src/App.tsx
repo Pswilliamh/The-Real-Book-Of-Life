@@ -39,7 +39,7 @@ import GematriaCalculator from "./components/GematriaCalculator";
 import ProphetAdvisor from "./components/ProphetAdvisor";
 
 // Master Viewports definition
-type TabId = "showcase" | "presentation" | "techlab";
+type TabId = "showcase" | "presentation" | "techlab" | "deception";
 
 export default function App() {
   // Navigation tabs state
@@ -67,7 +67,7 @@ export default function App() {
 
   // Presentation state
   const [activeChapterId, setActiveChapterId] = useState<number>(4); // Defaults to chapter 4
-  const [activeDocId, setActiveDocId] = useState<string | null>("book_of_life_origin");
+  const [activeDocId, setActiveDocId] = useState<string | null>("real_book_of_life_2");
 
   // IVCC Alignment state (Pillar 2 workbook)
   const [selectedCriticalIdx, setSelectedCriticalIdx] = useState<number>(-1);
@@ -82,6 +82,7 @@ export default function App() {
 
   // Modal displays
   const [showEmbassyModal, setShowEmbassyModal] = useState(false);
+  const [christImageError, setChristImageError] = useState(false);
 
   // Interactive FAQ / Protocols Accordion State
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
@@ -360,9 +361,9 @@ export default function App() {
         </div>
       </div>
 
-      {/* THE THREE-TAB NAVIGATION DECK */}
+      {/* THE FOUR-TAB NAVIGATION DECK */}
       <nav className="relative z-10 max-w-7xl mx-auto w-full px-4 pt-5 pb-3">
-        <div className="bg-[#0a1122]/90 p-1.5 rounded-xl border border-slate-800/80 grid grid-cols-3 gap-2">
+        <div className="bg-[#0a1122]/90 p-1.5 rounded-xl border border-slate-800/80 grid grid-cols-2 lg:grid-cols-4 gap-2">
           
           {/* Tab 1: System Showcase */}
           <button
@@ -410,6 +411,22 @@ export default function App() {
           >
             <Sliders className="w-4 h-4 animate-pulse" />
             <span>ILLUSTRATIONS / LAB</span>
+          </button>
+
+          {/* Tab 4: FCR Deception Model */}
+          <button
+            onClick={() => {
+              setActiveTab("deception");
+              playTone(396, "FCR Deception Active");
+            }}
+            className={`py-3.5 px-2.5 rounded-lg flex flex-col md:flex-row items-center justify-center gap-2 text-xs font-mono font-bold tracking-wider uppercase transition-all duration-300 cursor-pointer ${
+              activeTab === "deception"
+                ? "bg-slate-950 border border-purple-500/60 text-purple-400 shadow-[0_0_12px_rgba(168,85,247,0.25)]"
+                : "text-slate-400 hover:text-slate-200 hover:bg-slate-900/40"
+            }`}
+          >
+            <Shield className="w-4 h-4 animate-pulse text-purple-400" />
+            <span>FCR DECEPTION MODEL</span>
           </button>
 
         </div>
@@ -757,7 +774,7 @@ export default function App() {
             {/* LEFT-HAND COMPONENT SELECTOR LIST (30% Width Grid -> col-span-3 of 10) */}
             <div className="lg:col-span-3 bg-slate-900/30 rounded-xl border border-slate-800/80 p-4 space-y-6 h-[600px] overflow-y-auto">
               
-              {/* SECTION 1: CORE RESEARCH PAPERS */}
+              {/* CATEGORY 1: CORE RESEARCH PAPERS */}
               <div className="space-y-3">
                 <div className="flex items-center gap-2 border-b border-cyan-500/10 pb-2 px-1">
                   <FileText className="w-4 h-4 text-cyan-400" />
@@ -768,22 +785,22 @@ export default function App() {
                 <div className="space-y-2">
                   {[
                     {
-                      id: "book_of_life_origin",
-                      title: "The Real Book of Life Origin",
+                      id: "real_book_of_life_2",
+                      title: "The Real Book of Life 2.0",
                       subtitle: "Secure Document Vault",
                       badge: "Doc 1",
                       freq: 432
                     },
                     {
-                      id: "new_creation_protocol",
-                      title: "The New Creation Protocol",
+                      id: "salvation_kingdom_protocol",
+                      title: "Salvation Kingdom Protocol",
                       subtitle: "Secure Document Vault",
                       badge: "Doc 2",
                       freq: 432
                     },
                     {
-                      id: "pneumatology_protocol",
-                      title: "The Pneumatology Creation Dimensional Protocol",
+                      id: "new_creation_protocol",
+                      title: "New Creation Protocol",
                       subtitle: "Secure Document Vault",
                       badge: "Doc 3",
                       freq: 432
@@ -819,7 +836,7 @@ export default function App() {
                 </div>
               </div>
 
-              {/* SECTION 2: INSTITUTE AUDIO PODCASTS */}
+              {/* CATEGORY 2: INSTITUTE AUDIO PODCASTS */}
               <div className="space-y-3">
                 <div className="flex items-center gap-2 border-b border-pink-500/10 pb-2 px-1">
                   <Radio className="w-4 h-4 text-pink-400" />
@@ -881,6 +898,61 @@ export default function App() {
                 </div>
               </div>
 
+              {/* CATEGORY 3: SYSTEM VIDEO EXPLAINERS */}
+              <div className="space-y-3">
+                <div className="flex items-center gap-2 border-b border-purple-500/10 pb-2 px-1">
+                  <Video className="w-4 h-4 text-purple-400" />
+                  <h3 className="text-xs font-mono font-bold uppercase tracking-widest text-[#00ffcc]">
+                    SYSTEM VIDEO EXPLAINERS
+                  </h3>
+                </div>
+                <div className="space-y-2">
+                  {[
+                    {
+                      id: "video_carbon_lock",
+                      title: "The 666 Carbon Lock Overview",
+                      subtitle: "Secure Video Explainer",
+                      badge: "Video 1",
+                      freq: 396
+                    },
+                    {
+                      id: "video_new_birth",
+                      title: "The New Birth Activation Blueprint",
+                      subtitle: "Secure Video Explainer",
+                      badge: "Video 2",
+                      freq: 396
+                    }
+                  ].map((vid) => {
+                    const isActive = activeDocId === vid.id;
+                    return (
+                      <button
+                        key={vid.id}
+                        id={`card-video-${vid.id}`}
+                        onClick={() => {
+                          setActiveDocId(vid.id);
+                          playTone(vid.freq, `${vid.title} Stream Selected`);
+                        }}
+                        className={`w-full p-2.5 rounded-lg border text-left cursor-pointer transition-all flex items-start gap-2.5 ${
+                          isActive
+                            ? "bg-slate-950 border-purple-500/60 text-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.15)]"
+                            : "bg-transparent border-slate-850 text-slate-400 hover:bg-slate-900/30 hover:border-slate-800"
+                        }`}
+                      >
+                        <div className={`p-1 rounded font-mono text-[10px] font-bold leading-none flex-shrink-0 ${
+                          isActive ? "bg-purple-950 text-purple-300" : "bg-slate-950 text-slate-500"
+                        }`}>
+                          {vid.badge}
+                        </div>
+                        <div>
+                          <div className="text-xs font-bold leading-tight tracking-wide">{vid.title}</div>
+                          <div className="text-[10px] opacity-75 font-mono mt-0.5">{vid.subtitle}</div>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
             </div>
 
             {/* RIGHT-HAND PROTECTED PLAYBACK DISPLAY (70% Width Grid -> col-span-7 of 10) */}
@@ -896,12 +968,14 @@ export default function App() {
                       <span>SECURE RESOURCE WORKSTATION</span>
                     </span>
                     <h2 className="text-lg sm:text-xl font-bold font-display text-slate-200 mt-1">
-                      {activeDocId === "book_of_life_origin" && "The Real Book of Life Origin"}
-                      {activeDocId === "new_creation_protocol" && "The New Creation Protocol"}
-                      {activeDocId === "pneumatology_protocol" && "The Pneumatology Creation Dimensional Protocol"}
+                      {activeDocId === "real_book_of_life_2" && "The Real Book of Life 2.0"}
+                      {activeDocId === "salvation_kingdom_protocol" && "Salvation Kingdom Protocol"}
+                      {activeDocId === "new_creation_protocol" && "New Creation Protocol"}
                       {activeDocId === "audio_architecture_origin" && "Architecture Creation Origin"}
                       {activeDocId === "audio_pneumatology_matrix" && "Pneumatology Dimensional Creation Matrix"}
                       {activeDocId === "audio_closed_sphere_model" && "Closed Sphere Firmament Cell Model"}
+                      {activeDocId === "video_carbon_lock" && "The 666 Carbon Lock Overview"}
+                      {activeDocId === "video_new_birth" && "The New Birth Activation Blueprint"}
                       {!activeDocId && "Digital Assets Research Center"}
                     </h2>
                   </div>
@@ -916,37 +990,37 @@ export default function App() {
                   onContextMenu={(e) => e.preventDefault()}
                 >
                   
-                  {/* Document Viewframe Iframes */}
-                  {activeDocId === "book_of_life_origin" && (
+                  {/* Document Viewframe Iframes using Google Drive Preview Link */}
+                  {activeDocId === "real_book_of_life_2" && (
                     <iframe
                       id="viewframe-doc-1"
-                      src="documents/The_Real_Book_of_Life_Origin.pdf#toolbar=0&navpanes=0"
+                      src="https://drive.google.com/file/d/DOC_ID_REAL_BOOK/preview"
                       width="100%"
-                      height="100%"
-                      style={{ border: "none", borderRadius: "4px", backgroundColor: "#050b14" }}
+                      height="600"
+                      style={{ border: "none", borderRadius: "6px", backgroundColor: "#050b14" }}
+                      className="w-full flex-1 min-h-[380px]"
+                    ></iframe>
+                  )}
+
+                  {activeDocId === "salvation_kingdom_protocol" && (
+                    <iframe
+                      id="viewframe-doc-2"
+                      src="https://drive.google.com/file/d/DOC_ID_SALVATION_PROTOCOL/preview"
+                      width="100%"
+                      height="600"
+                      style={{ border: "none", borderRadius: "6px", backgroundColor: "#050b14" }}
                       className="w-full flex-1 min-h-[380px]"
                     ></iframe>
                   )}
 
                   {activeDocId === "new_creation_protocol" && (
                     <iframe
-                      id="viewframe-doc-2"
-                      src="documents/The_New_Creation_Protocol.pdf#toolbar=0&navpanes=0"
-                      width="100%"
-                      height="100%"
-                      style={{ border: "none", borderRadius: "4px", backgroundColor: "#050b14" }}
-                      className="w-full flex-1 min-h-[380px]"
-                    ></iframe>
-                  )}
-
-                  {activeDocId === "pneumatology_protocol" && (
-                    <iframe
                       id="viewframe-doc-3"
-                      src="documents/The_Pneumatology_Creation_Dimensional_Protocol.pdf#toolbar=0&navpanes=0"
+                      src="https://drive.google.com/file/d/DOC_ID_NEW_CREATION/preview"
                       width="100%"
-                      height="100%"
-                      style={{ border: "none", borderRadius: "4px", backgroundColor: "#050b14" }}
-                      className="w-full flex-1"
+                      height="600"
+                      style={{ border: "none", borderRadius: "6px", backgroundColor: "#050b14" }}
+                      className="w-full flex-1 min-h-[380px]"
                     ></iframe>
                   )}
 
@@ -1017,10 +1091,55 @@ export default function App() {
                     </div>
                   )}
 
+                  {/* Video Explainers HTML5 / Custom Video Players with explicit nodownload restriction */}
+                  {activeDocId === "video_carbon_lock" && (
+                    <div className="flex flex-col items-center justify-center py-6 px-4 w-full h-full max-w-xl mx-auto text-center space-y-4">
+                      <div className="w-14 h-14 rounded-full bg-purple-950/50 border border-purple-500/30 flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.1)] text-purple-400 animate-pulse">
+                        <Video className="w-7 h-7" />
+                      </div>
+                      <div className="space-y-1">
+                        <h4 className="text-sm font-semibold tracking-wide text-slate-200 font-display">The 666 Carbon Lock Overview</h4>
+                        <p className="text-xs text-slate-400 font-mono">SECURE SYSTEM VIDEO EXPLAINER</p>
+                      </div>
+                      <video
+                        id="video-player-1"
+                        controls
+                        controlsList="nodownload"
+                        className="w-full h-auto max-h-[300px] rounded-lg border border-slate-800 accent-purple-500 shadow-lg"
+                        onContextMenu={(e) => e.preventDefault()}
+                      >
+                        <source src="video/The_666_Carbon_Lock_Overview.mp4" type="video/mp4" />
+                        Your browser does not support the video element.
+                      </video>
+                    </div>
+                  )}
+
+                  {activeDocId === "video_new_birth" && (
+                    <div className="flex flex-col items-center justify-center py-6 px-4 w-full h-full max-w-xl mx-auto text-center space-y-4">
+                      <div className="w-14 h-14 rounded-full bg-purple-950/50 border border-purple-500/30 flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.1)] text-purple-400 animate-pulse">
+                        <Video className="w-7 h-7" />
+                      </div>
+                      <div className="space-y-1">
+                        <h4 className="text-sm font-semibold tracking-wide text-slate-200 font-display">The New Birth Activation Blueprint</h4>
+                        <p className="text-xs text-slate-400 font-mono">SECURE SYSTEM VIDEO EXPLAINER</p>
+                      </div>
+                      <video
+                        id="video-player-2"
+                        controls
+                        controlsList="nodownload"
+                        className="w-full h-auto max-h-[300px] rounded-lg border border-slate-800 accent-purple-500 shadow-lg"
+                        onContextMenu={(e) => e.preventDefault()}
+                      >
+                        <source src="video/The_New_Birth_Activation_Blueprint.mp4" type="video/mp4" />
+                        Your browser does not support the video element.
+                      </video>
+                    </div>
+                  )}
+
                   {/* Fallback if somehow selection is lost */}
                   {!activeDocId && (
                     <div className="text-center p-6 text-slate-500 font-mono text-xs">
-                      Please select a Secure Asset Paper or Podcast from the left-hand directory list.
+                      Please select a Secure Asset Paper, Podcast, or Video from the left-hand directory list.
                     </div>
                   )}
 
@@ -1029,7 +1148,7 @@ export default function App() {
                 {/* SECURE COPYRIGHT BANNER DISPLAY - permanently center-anchored beneath active media area */}
                 <div className="bg-[#050b14] border border-cyan-950/50 p-4 rounded-lg font-mono text-[10px] leading-relaxed text-center space-y-1 mt-2 select-none">
                   <p className="font-bold text-cyan-400 tracking-wider flex items-center justify-center gap-1.5">
-                    🔒 SECURITY NOTICE: DOCUMENT &amp; AUDIO VIEW ONLY. DOWNLOADS ARE FORCE-DISABLED.
+                    🔒 SECURITY NOTICE: DOCUMENT, AUDIO, &amp; VIDEO VIEW ONLY. DOWNLOADS ARE FORCE-DISABLED.
                   </p>
                   <p className="text-slate-400 font-sans">Document Content Copyright © All Rights Reserved.</p>
                   <p className="text-pink-500/75 font-semibold uppercase tracking-wider text-[9px]">
@@ -1358,6 +1477,180 @@ export default function App() {
                 />
               </div>
 
+            </div>
+
+          </div>
+        )}
+
+        {/* ==================== TAB 4: FCR DECEPTION CONTRAST DECK ==================== */}
+        {activeTab === "deception" && (
+          <div className="animate-tab-fade space-y-6">
+            
+            {/* Header section */}
+            <div className="bg-slate-900/30 rounded-xl border border-slate-800/80 p-5 shadow-lg backdrop-blur-sm">
+              <span className="flex items-center gap-1.5 font-mono text-[10px] text-purple-400 font-bold uppercase tracking-wider">
+                <Shield className="w-3.5 h-3.5 animate-pulse" />
+                <span>TAB 4 CONTRAST DECK: SOVEREIGN TRUTH</span>
+              </span>
+              <h2 className="text-xl sm:text-2xl font-bold font-display text-slate-100 mt-1">
+                FCR DECEPTION MODEL WORKSPACE
+              </h2>
+              <p className="text-xs text-slate-400 font-sans mt-1.5 leading-relaxed">
+                Critical research deck examining flat plane electromagnetic confinement against simulated cosmic deception models. Select the corresponding streaming cards to inspect vector assets in real-time.
+              </p>
+            </div>
+
+            {/* Side-by-side Video Workspace */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              
+              {/* Card 1: FCR Creation Deception Model */}
+              <div id="deception-card-1" className="bg-[#0b132b]/80 rounded-xl border-2 border-purple-500/20 p-4 shadow-xl flex flex-col justify-between">
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between pb-2 border-b border-purple-950">
+                    <span className="text-xs font-mono font-bold text-purple-400 tracking-wider">
+                      VIDEO 1: DECEPTION LAYOUT
+                    </span>
+                    <span className="text-[9px] font-mono font-bold bg-purple-950 text-purple-300 px-2 py-0.5 rounded border border-purple-800/30">
+                      FCR_DECEPTION
+                    </span>
+                  </div>
+                  <h3 className="text-sm sm:text-base font-bold font-display text-slate-200">
+                    The FCR Creation Deception Model
+                  </h3>
+                  <div className="relative aspect-[16/9] w-full bg-slate-950 rounded-lg overflow-hidden border border-slate-900">
+                    <iframe 
+                      id="viewframe-deception-1"
+                      src="https://drive.google.com/file/d/1TQwUv42lj9P-jbxExI8FAFBksCmqf_t9/preview" 
+                      width="100%" 
+                      height="450" 
+                      allow="autoplay" 
+                      style={{ border: "none", borderRadius: "6px", backgroundColor: "#050b14" }}
+                      className="w-full h-full min-h-[300px] sm:min-h-[400px] lg:min-h-[450px]"
+                    ></iframe>
+                  </div>
+                </div>
+                <div className="mt-3 block font-mono text-[10px] text-slate-500">
+                  <span>[Status: Connected - 100% Cloud Stream Preview]</span>
+                </div>
+              </div>
+
+              {/* Card 2: Current Creation Model Simulation */}
+              <div id="deception-card-2" className="bg-[#0b132b]/80 rounded-xl border-2 border-cyan-500/20 p-4 shadow-xl flex flex-col justify-between">
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between pb-2 border-b border-cyan-950">
+                    <span className="text-xs font-mono font-bold text-cyan-400 tracking-wider">
+                      VIDEO 2: CLOSED SIMULATION
+                    </span>
+                    <span className="text-[9px] font-mono font-bold bg-cyan-950 text-cyan-300 px-2 py-0.5 rounded border border-cyan-800/30">
+                      CURRENT_SIMULATION
+                    </span>
+                  </div>
+                  <h3 className="text-sm sm:text-base font-bold font-display text-slate-200">
+                    Current Creation Model Simulation
+                  </h3>
+                  <div className="relative aspect-[16/9] w-full bg-slate-950 rounded-lg overflow-hidden border border-slate-900">
+                    <iframe 
+                      id="viewframe-deception-2"
+                      src="https://drive.google.com/file/d/1CLtiVD_Dpc7ZZS_9O-OT-GK6u_dIIicT/preview" 
+                      width="100%" 
+                      height="450" 
+                      allow="autoplay" 
+                      style={{ border: "none", borderRadius: "6px", backgroundColor: "#050b14" }}
+                      className="w-full h-full min-h-[300px] sm:min-h-[400px] lg:min-h-[450px]"
+                    ></iframe>
+                  </div>
+                </div>
+                <div className="mt-3 block font-mono text-[10px] text-slate-500">
+                  <span>[Status: Connected - 100% Cloud Stream Preview]</span>
+                </div>
+              </div>
+
+            </div>
+
+            {/* SYNC LOCAL PORTRAIT AND SCRIPTURAL CANVAS - side-by-side or below */}
+            <div id="sovereign-anchor-section" className="grid grid-cols-1 md:grid-cols-12 gap-6 bg-slate-950/75 rounded-2xl border border-slate-800/80 p-5 sm:p-6 shadow-xl backdrop-blur-md relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
+
+              {/* Left Column: Portrait Container */}
+              <div className="md:col-span-4 flex flex-col items-center justify-center space-y-3">
+                <span className="font-mono text-[10px] font-bold text-[#fbbf24] uppercase tracking-widest block text-center">
+                  Sovereign Ambassador Anchor
+                </span>
+                <div className="w-48 h-56 rounded-xl border border-slate-800 bg-[#070c19] overflow-hidden shadow-2xl relative group flex flex-col items-center justify-center">
+                  {!christImageError ? (
+                    <img 
+                      src="images/Christ.png" 
+                      alt="Ambassador Sovereign Portrait" 
+                      onError={() => setChristImageError(true)}
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  ) : (
+                    /* High-contrast sacred glowing cross visual fallback */
+                    <div className="w-full h-full bg-slate-950 flex flex-col items-center justify-center p-4 text-center select-none relative">
+                      <div className="absolute w-24 h-24 bg-amber-500/10 rounded-full blur-[20px] animate-pulse" />
+                      {/* Beautiful minimalist SVG representing Sovereign Cross Anchor */}
+                      <svg viewBox="0 0 100 100" className="w-20 h-20 text-amber-500/85 drop-shadow-[0_0_15px_rgba(245,158,11,0.5)] animate-pulse">
+                        <line x1="50" y1="15" x2="50" y2="80" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+                        <line x1="30" y1="35" x2="70" y2="35" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+                        <circle cx="50" cy="15" r="7" fill="none" stroke="currentColor" strokeWidth="3" />
+                        <path d="M 25,60 C 25,75 75,75 75,60" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+                        <path d="M 20,55 L 25,60 L 32,55" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+                        <path d="M 80,55 L 75,60 L 68,55" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+                      </svg>
+                      <h4 className="text-[10px] uppercase font-mono text-amber-400 font-bold tracking-widest mt-2">
+                        SOVEREIGN CROSS
+                      </h4>
+                      <p className="text-[8px] text-slate-500 mt-1 max-w-[140px] leading-tight">
+                        Standing by for Christ.png file alignment in /public/images/
+                      </p>
+                    </div>
+                  )}
+                  {/* Glass shimmer overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none" />
+                </div>
+              </div>
+
+              {/* Right Column: Scriptural Canvas */}
+              <div className="md:col-span-8 flex flex-col justify-center space-y-4 pt-4 md:pt-0 border-t border-slate-900 md:border-t-0 md:border-l md:border-slate-800/60 md:pl-6">
+                <span className="font-mono text-[10px] font-bold text-cyan-400 uppercase tracking-widest block">
+                  COVENANT REVELATION CANVAS
+                </span>
+                
+                {/* Scripture 1 */}
+                <div className="space-y-1.5 p-3.5 bg-slate-950/90 rounded-lg border border-[#3b0764]/40 hover:border-purple-500/30 transition-all shadow-[inset_0_1px_3px_rgba(0,0,0,0.4)]">
+                  <p className="text-sm sm:text-base font-bold text-glow-light-pulse tracking-wide text-purple-300 font-display">
+                    &ldquo;And Jesus answered and said unto them, Take heed that no man deceive you.&rdquo;
+                  </p>
+                  <p className="text-[10px] font-mono text-purple-400 font-bold uppercase tracking-wider text-right">
+                    — MATTHEW 24:4
+                  </p>
+                </div>
+
+                {/* Scripture 2 */}
+                <div className="space-y-1.5 p-3.5 bg-slate-950/90 rounded-lg border border-[#065f46]/40 hover:border-emerald-500/30 transition-all shadow-[inset_0_1px_3px_rgba(0,0,0,0.4)]">
+                  <p className="text-sm sm:text-base font-bold text-glow-light-pulse tracking-wide text-emerald-300 font-display">
+                    &ldquo;And ye shall know the truth, and the truth shall make you free.&rdquo;
+                  </p>
+                  <p className="text-[10px] font-mono text-emerald-400 font-bold uppercase tracking-wider text-right">
+                    — JOHN 8:32
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Permanent Bottom Anchor Disclaimer matching Institute branding */}
+            <div className="bg-[#050b14] border border-purple-950/50 p-4 rounded-lg font-mono text-[10px] leading-relaxed text-center space-y-1 select-none relative">
+              <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-purple-500/20 to-transparent" />
+              <p className="font-bold text-purple-400 tracking-wider flex items-center justify-center gap-1.5">
+                🔒 SECURITY NOTICE: DOCUMENT, AUDIO, &amp; VIDEO VIEW ONLY. DOWNLOADS ARE FORCE-DISABLED.
+              </p>
+              <p className="text-slate-400 font-sans">Document Content Copyright © All Rights Reserved.</p>
+              <p className="text-[#00ffcc] font-semibold uppercase tracking-wider text-[9px] font-mono">
+                I.O.D.P.S.S Institute Dimensional Pneumatology Spiritual Sciences
+              </p>
             </div>
 
           </div>

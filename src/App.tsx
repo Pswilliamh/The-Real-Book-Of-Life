@@ -84,6 +84,7 @@ export default function App() {
   // Modal displays
   const [showEmbassyModal, setShowEmbassyModal] = useState(false);
   const [christImageError, setChristImageError] = useState(false);
+  const [externalPrompt, setExternalPrompt] = useState<string>("");
 
   // Interactive FAQ / Protocols Accordion State
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
@@ -607,6 +608,218 @@ export default function App() {
         {activeTab === "showcase" && (
           <div className="animate-tab-fade space-y-6">
             
+            {/* SOVEREIGN INTRODUCTORY CHARTER */}
+            <div id="sovereign-introductory-charter" className="bg-[#030712] rounded-xl border border-slate-800 p-5 shadow-2xl relative overflow-hidden select-none">
+              <div className="absolute top-0 right-0 w-80 h-80 bg-cyan-500/[0.03] rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-500/[0.03] rounded-full blur-3xl pointer-events-none" />
+              
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-800 pb-3 mb-4 gap-2">
+                <span className="font-mono text-[9px] text-[#fbbf24] font-bold uppercase tracking-widest flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 bg-amber-500 rounded-full animate-ping" />
+                  Sovereign Decree Code: COV-STABLE-963
+                </span>
+                <span className="px-2 py-0.5 bg-slate-950 border border-slate-800 rounded font-mono text-[9px] text-cyan-400 font-bold uppercase tracking-wider">
+                  Official Administrative Pronouncement
+                </span>
+              </div>
+
+              <div className="space-y-3 font-mono">
+                <div className="text-sm font-bold text-[#fbbf24] border-l-2 border-amber-500 pl-3 uppercase tracking-wide">
+                  ADMINISTRATIVE POSITIONING MANDATE // SYSTEM ORIENTATION:
+                </div>
+                <p className="text-xs sm:text-xs text-slate-100 font-sans leading-relaxed tracking-wide font-normal max-w-full text-justify">
+                  This platform does not promote popular alternative geographic theories or reactive flat-earth paradigms. The mandate of the Department of Pneuma Sciences is the systematic erasure of accidental, non-governed cosmic mindsets (such as the Big Bang matrix). We present the absolute, mathematically verifiable Creation Model based upon the Kingdom of Heaven—an intentionally engineered, structurally secure, and covenant-governed reality system.
+                </p>
+              </div>
+            </div>
+
+            {/* THE 50-WORD VORTEX DIRECTORY / CATEGORIZED LINGUISTIC LEDGER & KINGDOM EMBASSY CONSULTANT SECTION */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              
+              {/* Left Side: 50-Word Categorized Linguistic Ledger */}
+              <div id="vortex-dictionary-ledger" className="lg:col-span-7 bg-[#030712]/90 rounded-xl border border-slate-800 p-5 shadow-xl relative overflow-hidden flex flex-col justify-between">
+                <div className="absolute top-0 right-0 w-48 h-48 bg-cyan-500/[0.01] rounded-full blur-3xl pointer-events-none" />
+                
+                <div>
+                  <div className="border-b border-slate-800 pb-3 mb-4">
+                    <div className="flex items-center justify-between">
+                      <span className="font-mono text-[10px] text-[#fbbf24] font-bold uppercase tracking-widest flex items-center gap-1">
+                        <Compass className="w-3.5 h-3.5 animate-spin" style={{ animationDuration: "12s" }} />
+                        Linguistic Ledger Directory
+                      </span>
+                      <span className="px-2 py-0.5 bg-slate-950 border border-slate-800 rounded font-mono text-[9px] text-cyan-400 font-bold">
+                        50 INDEX KEYS
+                      </span>
+                    </div>
+                    <h3 className="text-xs font-bold font-display uppercase tracking-wide text-slate-100 mt-1">
+                      50-WORD SYSTEMIC VORTEX DIRECTORY
+                    </h3>
+                    <p className="text-[10px] font-sans text-slate-400 mt-1">
+                      Click any key to transmit its frequency and evaluate its theological-scientific role.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-h-[340px] overflow-y-auto pr-1">
+                    
+                    {/* Category 1: Subterranean Aquifers */}
+                    <div className="space-y-1.5">
+                      <div className="bg-slate-950 border border-slate-800 px-1 py-0.5 rounded text-center text-[8px] font-mono font-bold text-emerald-400 uppercase tracking-wider">
+                        🌊 Aquifers
+                      </div>
+                      <div className="flex flex-col gap-0.5">
+                        {[
+                          { word: "Aquifer Core Flow", hz: 396 },
+                          { word: "Thermal Reservoirs", hz: 396 },
+                          { word: "Hydro-Static", hz: 417 },
+                          { word: "Hydro-Aquifer", hz: 432 },
+                          { word: "Deep Basin Sieve", hz: 528 },
+                          { word: "Soil Recirculator", hz: 528 },
+                          { word: "Filtration Sand", hz: 639 },
+                          { word: "Basalt Column Seal", hz: 639 },
+                          { word: "Gravity Moisture", hz: 741 },
+                          { word: "Saturated Topsoil", hz: 741 },
+                          { word: "Geothermal Heat", hz: 852 },
+                          { word: "Bottom Inflow", hz: 852 },
+                          { word: "Sub-Topsoil Humid", hz: 963 }
+                        ].map((item, idx) => (
+                          <button
+                            key={idx}
+                            onClick={() => {
+                              playTone(item.hz, item.word);
+                              setExternalPrompt(`Explain the role of "${item.word}" (Frequency: ${item.hz}Hz) inside the Subterranean Aquifers of the Kingdom of Heaven Creation Model.`);
+                            }}
+                            className="py-1 px-1 rounded text-left text-[9px] font-mono border border-slate-900 bg-[#050b14] hover:bg-emerald-950/20 hover:border-emerald-500/35 text-slate-300 hover:text-emerald-400 transition-all cursor-pointer truncate"
+                            title={`${item.word} (${item.hz}Hz)`}
+                          >
+                            {item.word}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Category 2: Solar Layer Strata */}
+                    <div className="space-y-1.5">
+                      <div className="bg-slate-950 border border-slate-800 px-1 py-0.5 rounded text-center text-[8px] font-mono font-bold text-cyan-400 uppercase tracking-wider">
+                        🔆 Solar Strata
+                      </div>
+                      <div className="flex flex-col gap-0.5">
+                        {[
+                          { word: "Glass Dome", hz: 528 },
+                          { word: "Luminiferous Vault", hz: 528 },
+                          { word: "Pressurized Sieve", hz: 639 },
+                          { word: "Thermal Moisture", hz: 639 },
+                          { word: "Rarefied Plasma", hz: 741 },
+                          { word: "High ozone Arc", hz: 741 },
+                          { word: "Vapor Shield", hz: 852 },
+                          { word: "Light Lattice", hz: 852 },
+                          { word: "Scalar Compress", hz: 963 },
+                          { word: "Cosmic Deflector", hz: 963 },
+                          { word: "Sky-Ice Grid", hz: 432 },
+                          { word: "Rainbow Arch", hz: 432 },
+                          { word: "Solar Regulator", hz: 396 }
+                        ].map((item, idx) => (
+                          <button
+                            key={idx}
+                            onClick={() => {
+                              playTone(item.hz, item.word);
+                              setExternalPrompt(`Explain the role of "${item.word}" (Frequency: ${item.hz}Hz) inside the Solar Layer Strata of the Kingdom of Heaven Creation Model.`);
+                            }}
+                            className="py-1 px-1 rounded text-left text-[9px] font-mono border border-slate-900 bg-[#050b14] hover:bg-cyan-950/20 hover:border-cyan-500/35 text-slate-300 hover:text-cyan-400 transition-all cursor-pointer truncate"
+                            title={`${item.word} (${item.hz}Hz)`}
+                          >
+                            {item.word}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Category 3: Analemma Cycles */}
+                    <div className="space-y-1.5">
+                      <div className="bg-slate-950 border border-slate-800 px-1 py-0.5 rounded text-center text-[8px] font-mono font-bold text-amber-400 uppercase tracking-wider">
+                        🔄 Analemma
+                      </div>
+                      <div className="flex flex-col gap-0.5">
+                        {[
+                          { word: "Figure-Eight Path", hz: 432 },
+                          { word: "Solstice Zenith", hz: 432 },
+                          { word: "Equinoctial Cross", hz: 528 },
+                          { word: "Orbit Ticking Loop", hz: 528 },
+                          { word: "Moon Phase Drive", hz: 639 },
+                          { word: "Orbit Calibration", hz: 639 },
+                          { word: "Luminary Chronos", hz: 741 },
+                          { word: "Axial Tilt Swing", hz: 741 },
+                          { word: "3-6-9 Clock Gears", hz: 852 },
+                          { word: "Geocentric Drive", hz: 852 },
+                          { word: "Sun Tracking Dial", hz: 963 },
+                          { word: "Lunar Node Cross", hz: 963 },
+                          { word: "Ecliptic Reg", hz: 396 }
+                        ].map((item, idx) => (
+                          <button
+                            key={idx}
+                            onClick={() => {
+                              playTone(item.hz, item.word);
+                              setExternalPrompt(`Explain the role of "${item.word}" (Frequency: ${item.hz}Hz) inside the Analemma Cycles of the Kingdom of Heaven Creation Model.`);
+                            }}
+                            className="py-1 px-1 rounded text-left text-[9px] font-mono border border-slate-900 bg-[#050b14] hover:bg-amber-950/20 hover:border-amber-500/35 text-slate-300 hover:text-amber-400 transition-all cursor-pointer truncate"
+                            title={`${item.word} (${item.hz}Hz)`}
+                          >
+                            {item.word}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Category 4: Frequency Displacement Tiers */}
+                    <div className="space-y-1.5">
+                      <div className="bg-slate-950 border border-slate-800 px-1 py-0.5 rounded text-center text-[8px] font-mono font-bold text-purple-400 uppercase tracking-wider">
+                        ⚡ Frequencies
+                      </div>
+                      <div className="flex flex-col gap-0.5">
+                        {[
+                          { word: "Command Wave", hz: 432 },
+                          { word: "Dome Shield", hz: 528 },
+                          { word: "Geospheric Core", hz: 639 },
+                          { word: "Chronos Hub", hz: 741 },
+                          { word: "Biosphere Medium", hz: 852 },
+                          { word: "Carbon Lock", hz: 396 },
+                          { word: "Sovereign Rest", hz: 963 },
+                          { word: "Harmonic Nodes", hz: 432 },
+                          { word: "Scalar Separation", hz: 528 },
+                          { word: "Vortex Multiplier", hz: 639 },
+                          { word: "Covenant Gate", hz: 963 }
+                        ].map((item, idx) => (
+                          <button
+                            key={idx}
+                            onClick={() => {
+                              playTone(item.hz, item.word);
+                              setExternalPrompt(`Explain the role of "${item.word}" (Frequency: ${item.hz}Hz) inside the Frequency Displacement Tiers of the Kingdom of Heaven Creation Model.`);
+                            }}
+                            className="py-1 px-1 rounded text-left text-[9px] font-mono border border-slate-900 bg-[#050b14] hover:bg-purple-950/20 hover:border-purple-500/35 text-slate-300 hover:text-purple-400 transition-all cursor-pointer truncate"
+                            title={`${item.word} (${item.hz}Hz)`}
+                          >
+                            {item.word}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Side: KINGDOM EMBASSY CONSULTANT */}
+              <div className="lg:col-span-5 flex flex-col justify-stretch">
+                <ProphetAdvisor
+                  dayId={activeDayId}
+                  pressureScale={pressureScale}
+                  vortexSpin={vortexSpin}
+                  externalPrompt={externalPrompt}
+                  onClearExternalPrompt={() => setExternalPrompt("")}
+                />
+              </div>
+
+            </div>
+
             {/* Main Graphics Display and Controller Wrapper */}
             <div className="bg-slate-900/20 rounded-2xl border border-slate-800/80 p-4 sm:p-6 shadow-xl backdrop-blur-sm">
               <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-4 pb-4 border-b border-slate-800/80">

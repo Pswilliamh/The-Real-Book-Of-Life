@@ -5,9 +5,17 @@ interface ProphetAdvisorProps {
   dayId: number;
   pressureScale: number;
   vortexSpin: boolean;
+  externalPrompt?: string;
+  onClearExternalPrompt?: () => void;
 }
 
-export default function ProphetAdvisor({ dayId, pressureScale, vortexSpin }: ProphetAdvisorProps) {
+export default function ProphetAdvisor({ 
+  dayId, 
+  pressureScale, 
+  vortexSpin,
+  externalPrompt,
+  onClearExternalPrompt
+}: ProphetAdvisorProps) {
   const [messages, setMessages] = useState<
     { sender: "user" | "prophet"; text: string; id: number }[]
   >([
@@ -33,6 +41,16 @@ export default function ProphetAdvisor({ dayId, pressureScale, vortexSpin }: Pro
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
+
+  // Handle external prompts sent from the ledger directory
+  useEffect(() => {
+    if (externalPrompt && externalPrompt.trim()) {
+      handleSendPrompt(externalPrompt);
+      if (onClearExternalPrompt) {
+        onClearExternalPrompt();
+      }
+    }
+  }, [externalPrompt]);
 
   const handleSendPrompt = async (textToSend: string) => {
     if (!textToSend.trim()) return;
@@ -96,7 +114,7 @@ export default function ProphetAdvisor({ dayId, pressureScale, vortexSpin }: Pro
         <Sparkles className="w-5 h-5 text-amber-400 animate-pulse" />
         <div>
           <h3 className="text-sm font-bold text-amber-400 uppercase tracking-widest font-mono">
-            PROPHET scribe CONSULTANT [GEMINI API]
+            KINGDOM EMBASSY CONSULTANT [GEMINI API]
           </h3>
           <p className="text-[11px] text-slate-400">Theological &amp; Scientific Covenant Analysis</p>
         </div>

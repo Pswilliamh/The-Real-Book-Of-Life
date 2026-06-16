@@ -1257,6 +1257,20 @@ export default function App() {
                       subtitle: "Secure Document Vault",
                       badge: "Doc 3",
                       freq: 432
+                    },
+                    {
+                      id: "dimensional_jurisprudence",
+                      title: "Dimensional Jurisprudence",
+                      subtitle: "Secure Document Vault",
+                      badge: "Doc 4",
+                      freq: 432
+                    },
+                    {
+                      id: "pneuma_system_architecture",
+                      title: "Pneuma System Architecture",
+                      subtitle: "Secure Document Vault",
+                      badge: "Doc 5",
+                      freq: 432
                     }
                   ].map((doc) => {
                     const isActive = activeDocId === doc.id;
@@ -1424,6 +1438,8 @@ export default function App() {
                       {activeDocId === "real_book_of_life_2" && "The Real Book of Life Origin"}
                       {activeDocId === "salvation_kingdom_protocol" && "The Pneumatology Creation Dimensional Protocol"}
                       {activeDocId === "new_creation_protocol" && "New Creation Protocol"}
+                      {activeDocId === "dimensional_jurisprudence" && "Dimensional Jurisprudence"}
+                      {activeDocId === "pneuma_system_architecture" && "Pneuma System Architecture"}
                       {activeDocId === "audio_architecture_origin" && "Architecture Creation Origin"}
                       {activeDocId === "audio_pneumatology_matrix" && "Pneumatology Dimensional Creation Matrix"}
                       {activeDocId === "audio_closed_sphere_model" && "Closed Sphere Firmament Cell Model"}
@@ -1470,6 +1486,28 @@ export default function App() {
                     <iframe
                       id="viewframe-doc-3"
                       src="https://drive.google.com/file/d/1ZCQkTo-3wyUdGn50krzQCmvl1OL35LH8/preview"
+                      width="100%"
+                      height="600"
+                      style={{ border: "none", borderRadius: "6px", backgroundColor: "#050b14" }}
+                      className="w-full flex-1 min-h-[380px]"
+                    ></iframe>
+                  )}
+
+                  {activeDocId === "dimensional_jurisprudence" && (
+                    <iframe
+                      id="viewframe-doc-4"
+                      src="https://drive.google.com/file/d/1PS_iT1P__aizuMKxQKLjEQiEHlE1q8iU/preview"
+                      width="100%"
+                      height="600"
+                      style={{ border: "none", borderRadius: "6px", backgroundColor: "#050b14" }}
+                      className="w-full flex-1 min-h-[380px]"
+                    ></iframe>
+                  )}
+
+                  {activeDocId === "pneuma_system_architecture" && (
+                    <iframe
+                      id="viewframe-doc-5"
+                      src="https://drive.google.com/file/d/1SWeohZ8LlBpndijI-KErKUbBXgHT2eNd/preview"
                       width="100%"
                       height="600"
                       style={{ border: "none", borderRadius: "6px", backgroundColor: "#050b14" }}
@@ -2067,7 +2105,7 @@ export default function App() {
                       HISTORICAL REVIEW:
                     </span>
                     <p className="text-slate-200 font-sans text-xs leading-relaxed tracking-wide">
-                      HISTORICAL REVIEW: This section archives various historical theses outlining closed-system creation models. Throughout analytical history, structural configurations have defined the upper perimeter not as empty vacuum, but as a dense, pressurized container matrix sealing the terrestrial plane.
+                      HISTORICAL REVIEW: This section archives various historical theses outlining closed-system creation models. Within this sovereign architecture, the upper perimeter is defined not as an empty vacuum or a solid rigid dome, but as a multi-layered atmospheric expansion bound by a protective upper Water Barrier.
                     </p>
                   </div>
                   <div className="border-t border-slate-900 pt-2 text-[8px] text-slate-500 flex justify-between uppercase mt-auto">
@@ -2080,7 +2118,7 @@ export default function App() {
                 <div className="bg-slate-950/80 border border-slate-800 p-4 rounded-lg space-y-3 hover:border-cyan-500/30 transition-all flex flex-col justify-between">
                   <div className="flex items-center justify-between border-b border-slate-900 pb-2">
                     <span className="text-[10px] uppercase font-bold text-slate-400">
-                      NODE 02 // MASS EXPULSION CONSTRAINT
+                      NODE 02 // MATERIAL TRANSLATION OVERRIDES (The Propulsion Matrix)
                     </span>
                     <span className="px-1.5 py-0.5 bg-cyan-950/40 text-cyan-400 border border-cyan-800/30 rounded text-[8px] font-bold">
                       KINETIC_LIMIT
@@ -2088,10 +2126,10 @@ export default function App() {
                   </div>
                   <div className="space-y-1">
                     <span className="text-[10px] text-cyan-400 font-bold block uppercase tracking-wider">
-                      PROPULSION RESTRAINTS:
+                      HYDRO-DYNAMIC RESTRAINTS:
                     </span>
                     <p className="text-slate-200 font-sans text-xs leading-relaxed tracking-wide">
-                      PROPULSION RESTRAINTS: Within the parameters of this sovereign creation architecture, breaching or displacing the upper water firmament layer through standard material kinetic combustion—such as terrestrial brute-force rocketry—is mathematically and physically impossible. Systemic boundary integrity cannot be altered by physical brute force.
+                      HYDRO-DYNAMIC RESTRAINTS: Because the upper perimeter consists of an intricate, high-density water barrier system, breaching or crossing this cosmic boundary layer through physical brute-force terrestrial combustion mechanisms—such as kinetic material rockets—is structurally and mechanically impossible. Terrestrial propulsion physics are functionally incompatible with the density laws of the upper fluid covenant.
                     </p>
                   </div>
                   <div className="border-t border-slate-900 pt-2 text-[8px] text-slate-500 flex justify-between uppercase mt-auto">

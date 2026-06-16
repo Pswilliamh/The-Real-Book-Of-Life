@@ -2034,6 +2034,74 @@ export default function App() {
 
             </div>
 
+            {/* HISTORICAL CASE STUDY: CLOSED-SYSTEM BOUNDARIES */}
+            <div id="historical-boundaries-case-study" className="bg-[#030712]/90 rounded-xl border border-slate-800 p-5 shadow-xl relative overflow-hidden select-none">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/[0.02] rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-cyan-500/[0.02] rounded-full blur-3xl pointer-events-none" />
+              
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-800 pb-3 mb-4 gap-2">
+                <div className="flex items-center gap-2">
+                  <Database className="w-4 h-4 text-purple-400 animate-pulse" />
+                  <h3 className="text-xs sm:text-sm font-bold font-display uppercase tracking-widest text-[#fbbf24]">
+                    HISTORICAL CASE STUDY: CLOSED-SYSTEM BOUNDARIES
+                  </h3>
+                </div>
+                <span className="font-mono text-[9px] text-[#fbbf24] font-bold bg-slate-950 border border-slate-800 px-2.5 py-1 rounded">
+                  [DATA RETRIEVAL: ANALYSIS PATH]
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 font-mono text-xs">
+                {/* Node 1 */}
+                <div className="bg-slate-950/80 border border-slate-800 p-4 rounded-lg space-y-3 hover:border-purple-500/30 transition-all flex flex-col justify-between">
+                  <div className="flex items-center justify-between border-b border-slate-900 pb-2">
+                    <span className="text-[10px] uppercase font-bold text-slate-400">
+                      NODE 01 // COMPARATIVE CASE MODELS
+                    </span>
+                    <span className="px-1.5 py-0.5 bg-purple-950/40 text-purple-400 border border-purple-800/30 rounded text-[8px] font-bold">
+                      ARCHIVE_SYS
+                    </span>
+                  </div>
+                  <div className="space-y-1">
+                    <span className="text-[10px] text-purple-400 font-bold block uppercase tracking-wider">
+                      HISTORICAL REVIEW:
+                    </span>
+                    <p className="text-slate-200 font-sans text-xs leading-relaxed tracking-wide">
+                      HISTORICAL REVIEW: This section archives various historical theses outlining closed-system creation models. Throughout analytical history, structural configurations have defined the upper perimeter not as empty vacuum, but as a dense, pressurized container matrix sealing the terrestrial plane.
+                    </p>
+                  </div>
+                  <div className="border-t border-slate-900 pt-2 text-[8px] text-slate-500 flex justify-between uppercase mt-auto">
+                    <span>INDEX LEVEL:</span>
+                    <span className="text-purple-400 font-bold">COMPARATIVE HISTORIC</span>
+                  </div>
+                </div>
+
+                {/* Node 2 */}
+                <div className="bg-slate-950/80 border border-slate-800 p-4 rounded-lg space-y-3 hover:border-cyan-500/30 transition-all flex flex-col justify-between">
+                  <div className="flex items-center justify-between border-b border-slate-900 pb-2">
+                    <span className="text-[10px] uppercase font-bold text-slate-400">
+                      NODE 02 // MASS EXPULSION CONSTRAINT
+                    </span>
+                    <span className="px-1.5 py-0.5 bg-cyan-950/40 text-cyan-400 border border-cyan-800/30 rounded text-[8px] font-bold">
+                      KINETIC_LIMIT
+                    </span>
+                  </div>
+                  <div className="space-y-1">
+                    <span className="text-[10px] text-cyan-400 font-bold block uppercase tracking-wider">
+                      PROPULSION RESTRAINTS:
+                    </span>
+                    <p className="text-slate-200 font-sans text-xs leading-relaxed tracking-wide">
+                      PROPULSION RESTRAINTS: Within the parameters of this sovereign creation architecture, breaching or displacing the upper water firmament layer through standard material kinetic combustion—such as terrestrial brute-force rocketry—is mathematically and physically impossible. Systemic boundary integrity cannot be altered by physical brute force.
+                    </p>
+                  </div>
+                  <div className="border-t border-slate-900 pt-2 text-[8px] text-slate-500 flex justify-between uppercase mt-auto">
+                    <span>SECURITY COV:</span>
+                    <span className="text-cyan-400 font-bold">MASS RESTRICTION ACTIVE</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* SYNC LOCAL PORTRAIT AND SCRIPTURAL CANVAS - side-by-side or below */}
             <div id="sovereign-anchor-section" className="grid grid-cols-1 md:grid-cols-12 gap-6 bg-slate-950/75 rounded-2xl border border-slate-800/80 p-5 sm:p-6 shadow-xl backdrop-blur-md relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl pointer-events-none" />

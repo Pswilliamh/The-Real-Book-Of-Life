@@ -778,6 +778,232 @@ export default function App() {
               ))}
             </div>
 
+            {/* THE GENESIS PROTOCOL: SEVEN TIERS OF DIMENSIONAL GOVERNANCE */}
+            <div className="bg-slate-950/80 rounded-2xl border border-slate-800 p-5 sm:p-6 shadow-xl backdrop-blur-md relative overflow-hidden select-none mt-6" onContextMenu={(e) => e.preventDefault()}>
+              <div className="absolute top-0 right-0 w-80 h-80 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
+              
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-slate-800 pb-4 mb-6 gap-2">
+                <div>
+                  <span className="font-mono text-[10px] text-cyan-400 font-bold uppercase tracking-widest flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-ping" />
+                    Sovereign Constitutional Charter
+                  </span>
+                  <h3 className="text-base sm:text-lg font-bold font-display uppercase tracking-wide text-slate-100 mt-1">
+                    THE GENESIS PROTOCOL: SEVEN TIERS OF DIMENSIONAL GOVERNANCE
+                  </h3>
+                </div>
+                <div className="px-3 py-1 bg-slate-900 border border-slate-800 rounded font-mono text-[9px] text-[#fbbf24] font-bold">
+                  CONSTITUTIONAL INDEX: SYSTEMIC REIGN
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-4">
+                {/* Day 1 */}
+                <div className="bg-[#040812] border border-slate-800/80 p-4 rounded-lg flex flex-col justify-between space-y-3 relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-16 h-16 bg-cyan-500/[0.02] rounded-full blur-lg pointer-events-none" />
+                  <div className="flex items-center justify-between border-b border-slate-900 pb-2">
+                    <span className="font-mono text-xs font-bold text-cyan-400">01</span>
+                    <span className="px-1.5 py-0.5 bg-emerald-950/60 border border-emerald-500/30 rounded text-[8px] font-mono font-bold text-emerald-400">
+                      ACTIVE
+                    </span>
+                  </div>
+                  <div>
+                    <h5 className="font-display font-bold text-xs text-slate-100 tracking-tight uppercase leading-snug">
+                      [LIGHT RATIO EMISSION]
+                    </h5>
+                    <p className="text-[10px] text-slate-400 mt-1.5 font-sans leading-relaxed">
+                      Separation of primary frequency protocols from primal chaos.
+                    </p>
+                  </div>
+                  <div className="border-t border-slate-900 pt-2 font-mono text-[8px] space-y-0.5 mt-auto">
+                    <div className="flex justify-between text-slate-500">
+                      <span>LEVEL:</span>
+                      <span className="text-cyan-400 font-bold uppercase">ARCHITECTURAL</span>
+                    </div>
+                    <div className="flex justify-between text-slate-500">
+                      <span>FREQ:</span>
+                      <span className="text-amber-500 font-bold">432 Hz</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Day 2 */}
+                <div className="bg-[#040812] border border-slate-800/80 p-4 rounded-lg flex flex-col justify-between space-y-3 relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-16 h-16 bg-cyan-500/[0.02] rounded-full blur-lg pointer-events-none" />
+                  <div className="flex items-center justify-between border-b border-slate-900 pb-2">
+                    <span className="font-mono text-xs font-bold text-cyan-400">02</span>
+                    <span className="px-1.5 py-0.5 bg-cyan-950/60 border border-cyan-500/30 rounded text-[8px] font-mono font-bold text-cyan-300">
+                      REGULATED
+                    </span>
+                  </div>
+                  <div>
+                    <h5 className="font-display font-bold text-xs text-slate-100 tracking-tight uppercase leading-snug">
+                      [FIRMAMENT CELL]
+                    </h5>
+                    <p className="text-[10px] text-slate-400 mt-1.5 font-sans leading-relaxed">
+                      Establishment of the pressurized dimensional dome boundary layer.
+                    </p>
+                  </div>
+                  <div className="border-t border-slate-900 pt-2 font-mono text-[8px] space-y-0.5 mt-auto">
+                    <div className="flex justify-between text-slate-500">
+                      <span>LEVEL:</span>
+                      <span className="text-[#fbbf24] font-bold uppercase">BOUNDARY SHIELD</span>
+                    </div>
+                    <div className="flex justify-between text-slate-500">
+                      <span>PRESSURE:</span>
+                      <span className="text-cyan-400 font-bold">2.2 Atm</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Day 3 */}
+                <div className="bg-[#040812] border border-slate-800/80 p-4 rounded-lg flex flex-col justify-between space-y-3 relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-16 h-16 bg-cyan-500/[0.02] rounded-full blur-lg pointer-events-none" />
+                  <div className="flex items-center justify-between border-b border-slate-900 pb-2">
+                    <span className="font-mono text-xs font-bold text-cyan-400">03</span>
+                    <span className="px-1.5 py-0.5 bg-emerald-950/60 border border-emerald-500/30 rounded text-[8px] font-mono font-bold text-emerald-400">
+                      ONLINE
+                    </span>
+                  </div>
+                  <div>
+                    <h5 className="font-display font-bold text-xs text-slate-100 tracking-tight uppercase leading-snug">
+                      [GEOSPHERIC ALIGN]
+                    </h5>
+                    <p className="text-[10px] text-slate-400 mt-1.5 font-sans leading-relaxed">
+                      Organization of hydro-aquifer baselines and systemic vegetation matrices.
+                    </p>
+                  </div>
+                  <div className="border-t border-slate-900 pt-2 font-mono text-[8px] space-y-0.5 mt-auto">
+                    <div className="flex justify-between text-slate-500">
+                      <span>LEVEL:</span>
+                      <span className="text-cyan-400 font-bold uppercase">SYSTEMIC BASE</span>
+                    </div>
+                    <div className="flex justify-between text-slate-500">
+                      <span>AQUIFER:</span>
+                      <span className="text-[#fbbf24] font-bold text-right">CONSTANT 100%</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Day 4 */}
+                <div className="bg-[#040812] border border-slate-800/80 p-4 rounded-lg flex flex-col justify-between space-y-3 relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-16 h-16 bg-cyan-500/[0.02] rounded-full blur-lg pointer-events-none" />
+                  <div className="flex items-center justify-between border-b border-slate-900 pb-2">
+                    <span className="font-mono text-xs font-bold text-cyan-400">04</span>
+                    <span className="px-1.5 py-0.5 bg-amber-950/60 border border-amber-500/30 rounded text-[8px] font-mono font-bold text-amber-400">
+                      SYNCHRONIZED
+                    </span>
+                  </div>
+                  <div>
+                    <h5 className="font-display font-bold text-xs text-slate-100 tracking-tight uppercase leading-snug">
+                      [LUMINARY CHRONOS]
+                    </h5>
+                    <p className="text-[10px] text-slate-400 mt-1.5 font-sans leading-relaxed">
+                      Activation of celestial tracking frequencies for regulatory governance cycles.
+                    </p>
+                  </div>
+                  <div className="border-t border-slate-900 pt-2 font-mono text-[8px] space-y-0.5 mt-auto">
+                    <div className="flex justify-between text-slate-500">
+                      <span>LEVEL:</span>
+                      <span className="text-cyan-400 font-bold uppercase text-right">CHRONO GOVERN</span>
+                    </div>
+                    <div className="flex justify-between text-slate-500">
+                      <span>CLOCK:</span>
+                      <span className="text-emerald-400 font-bold text-right">3-6-9 PATTERN</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Day 5 */}
+                <div className="bg-[#040812] border border-slate-800/80 p-4 rounded-lg flex flex-col justify-between space-y-3 relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-16 h-16 bg-cyan-500/[0.02] rounded-full blur-lg pointer-events-none" />
+                  <div className="flex items-center justify-between border-b border-slate-900 pb-2">
+                    <span className="font-mono text-xs font-bold text-cyan-400">05</span>
+                    <span className="px-1.5 py-0.5 bg-emerald-950/60 border border-emerald-500/30 rounded text-[8px] font-mono font-bold text-emerald-400">
+                      OPERATIONAL
+                    </span>
+                  </div>
+                  <div>
+                    <h5 className="font-display font-bold text-xs text-slate-100 tracking-tight uppercase leading-snug">
+                      [BIOSPHERIC TYPE]
+                    </h5>
+                    <p className="text-[10px] text-slate-400 mt-1.5 font-sans leading-relaxed">
+                      Deployment of conscious movement forms within air and water mediums.
+                    </p>
+                  </div>
+                  <div className="border-t border-slate-900 pt-2 font-mono text-[8px] space-y-0.5 mt-auto">
+                    <div className="flex justify-between text-slate-500">
+                      <span>LEVEL:</span>
+                      <span className="text-[#fbbf24] font-bold uppercase text-right">PROPULSION</span>
+                    </div>
+                    <div className="flex justify-between text-slate-500">
+                      <span>MATRIX:</span>
+                      <span className="text-cyan-400 font-bold text-right">78% DENSITY</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Day 6 */}
+                <div className="bg-[#040812] border border-slate-800/80 p-4 rounded-lg flex flex-col justify-between space-y-3 relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-16 h-16 bg-cyan-500/[0.02] rounded-full blur-lg pointer-events-none" />
+                  <div className="flex items-center justify-between border-b border-slate-900 pb-2">
+                    <span className="font-mono text-xs font-bold text-cyan-400">06</span>
+                    <span className="px-1.5 py-0.5 bg-purple-950/60 border border-purple-500/30 rounded text-[8px] font-mono font-bold text-purple-400">
+                      SECURED
+                    </span>
+                  </div>
+                  <div>
+                    <h5 className="font-display font-bold text-xs text-slate-100 tracking-tight uppercase leading-snug">
+                      [CARBON ARCHITECTURE]
+                    </h5>
+                    <p className="text-[10px] text-slate-400 mt-1.5 font-sans leading-relaxed">
+                      Original rendering of the human template prior to the fractured creation lock.
+                    </p>
+                  </div>
+                  <div className="border-t border-slate-900 pt-2 font-mono text-[8px] space-y-0.5 mt-auto">
+                    <div className="flex justify-between text-slate-500">
+                      <span>LEVEL:</span>
+                      <span className="text-[#fbbf24] font-bold uppercase text-right">COGNITIVE</span>
+                    </div>
+                    <div className="flex justify-between text-slate-500">
+                      <span>LOCK:</span>
+                      <span className="text-rose-400 font-bold text-right">PRE-FRACTURE</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Day 7 */}
+                <div className="bg-[#040812] border border-[#fbbf24]/30 p-4 rounded-lg flex flex-col justify-between space-y-3 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-[#fbbf24]/[0.01] pointer-events-none" />
+                  <div className="flex items-center justify-between border-b border-slate-900 pb-2">
+                    <span className="font-mono text-xs font-bold text-[#fbbf24]">07</span>
+                    <span className="px-1.5 py-0.5 bg-amber-950/60 border border-[#fbbf24]/40 rounded text-[8px] font-mono font-bold text-[#fbbf24]">
+                      ESTABLISHED
+                    </span>
+                  </div>
+                  <div>
+                    <h5 className="font-display font-bold text-xs text-[#fbbf24] tracking-tight uppercase leading-snug">
+                      [SOVEREIGN REST]
+                    </h5>
+                    <p className="text-[10px] text-slate-300 mt-1.5 font-sans leading-relaxed">
+                      Absolute systemic integration and permanent governance lockdown.
+                    </p>
+                  </div>
+                  <div className="border-t border-slate-800/80 pt-2 font-mono text-[8px] space-y-0.5 mt-auto">
+                    <div className="flex justify-between text-slate-500">
+                      <span>LEVEL:</span>
+                      <span className="text-[#fbbf24] font-bold uppercase text-right">SVRGN REIGN</span>
+                    </div>
+                    <div className="flex justify-between text-slate-500">
+                      <span>STABILITY:</span>
+                      <span className="text-emerald-400 font-bold text-right">ABS LOCKED</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         )}
 
